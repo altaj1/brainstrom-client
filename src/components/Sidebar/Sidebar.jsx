@@ -20,17 +20,20 @@ import useAuth from '../../hooks/useAuth'
 import { Link } from 'react-router-dom'
 import { AiOutlineBars } from 'react-icons/ai'
 import MenuItem from './Menu/Menuitem'
-import GuestMenu from './Menu/GuestMenu'
+
 import { BsGraphUp } from 'react-icons/bs'
 import { FcSettings } from 'react-icons/fc'
 import { GrLogout } from 'react-icons/gr'
+import UserMenu from './Menu/UserMenu'
+import AdminMenu from './Menu/AdminMenu'
+import CreatorMenu from './Menu/CreatorMenu'
 
 const Sidebar = () => {
   const { logOut } = useAuth()
   const [isActive, setActive] = useState(false)
   const [toggle, setToggle] = useState(true)
 //   const [role, isLoading] = useRole()
-     const role = 'guest'
+     const role = 'creatorMenu'
 //   console.log(role, isLoading)
   // Sidebar Responsive Handler
   const handleToggle = () => {
@@ -102,7 +105,8 @@ const Sidebar = () => {
                 address='/dashboard'
                 icon={BsGraphUp}
               />
-              {role === 'guest' && <GuestMenu />}
+              {role === 'user' && <UserMenu/>}
+              {role === 'creatorMenu' && <CreatorMenu></CreatorMenu>}
               {/* {role === 'host' ? (
                 toggle ? (
                   <HostMen />
@@ -110,7 +114,7 @@ const Sidebar = () => {
                   <GuestMenu />
                 )
               ) : undefined} */}
-              {/* {role === 'admin' && <AdminMenu />} */}
+              {role === 'admin' && <AdminMenu />}
             </nav>
           </div>
         </div>

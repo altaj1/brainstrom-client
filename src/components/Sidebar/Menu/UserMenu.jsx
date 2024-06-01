@@ -16,7 +16,7 @@ import { BsFingerprint } from "react-icons/bs"
 import { GrUserAdmin } from "react-icons/gr"
 
 // import useAuth from '../../../../hooks/useAuth.js'
-const GuestMenu = () => {
+const UserMenu = () => {
   const axiosSecure = useAxiosSecure()
   const { user } = useAuth()
 //   const [role] = useRole()
@@ -76,4 +76,4 @@ const role = 'guest'
   )
 }
 
-export default GuestMenu
+export default UserMenu
