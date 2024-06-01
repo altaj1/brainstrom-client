@@ -57,14 +57,14 @@ const AuthProvider = ({ children }) => {
     })
   }
   // Get token from server
-//   const getToken = async email => {
-//     const { data } = await axios.post(
-//       `${import.meta.env.VITE_API_URL}/jwt`,
-//       { email },
-//       { withCredentials: true }
-//     )
-//     return data
-//   }
+  const getToken = async email => {
+    const { data } = await axios.post(
+      `${import.meta.env.VITE_API_URL}/jwt`,
+      { email },
+      { withCredentials: true }
+    )
+    return data
+  }
 
   // save user
   const saveUser = async user => {
@@ -73,11 +73,11 @@ const AuthProvider = ({ children }) => {
       role: 'guest',
       status: 'Verified',
     }
-    // const { data } = await axios.put(
-    //   `${import.meta.env.VITE_API_URL}/user`,
-    //   currentUser
-    // )
-    // return data
+    const { data } = await axios.put(
+      `${import.meta.env.VITE_API_URL}/user`,
+      currentUser
+    )
+    return data
   }
 
   // onAuthStateChange
@@ -85,8 +85,8 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser)
       if (currentUser) {
-        // getToken(currentUser.email)
-        // saveUser(currentUser)
+        getToken(currentUser.email)
+        saveUser(currentUser)
       }
       setLoading(false)
     })

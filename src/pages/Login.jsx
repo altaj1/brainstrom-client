@@ -46,7 +46,6 @@ const Login = () => {
     }
     console.log(email)
   }
-
   // handle google signin
   const handleGoogleSignIn = async () => {
     try {
