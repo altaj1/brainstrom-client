@@ -4,6 +4,7 @@ import Login from '../pages/Login'
 import DashboardLayout from '../layout/DashboardLayout'
 import PrivateRoute from './PrivateRoute'
 import SignUp from '../pages/SingUp'
+import AddContest from '../pages/addContest/AddContest'
 
 
 
@@ -37,25 +38,23 @@ export const router = createBrowserRouter([
         <DashboardLayout />
       </PrivateRoute>
     ),
-    // children: [
-    //   {
-    //     index: true,
-    //     element: (
-    //       <PrivateRoute>
-    //         <Statistics />
-    //       </PrivateRoute>
-    //     ),
-    //   },
-    //   {
-    //     path: 'add-room',
-    //     element: (
-    //       <PrivateRoute>
-    //         <HostRoute>
-    //           <AddRoom />
-    //         </HostRoute>
-    //       </PrivateRoute>
-    //     ),
-    //   },
+    children: [
+      {
+        index: true,
+        element: (
+          <PrivateRoute>
+            {/* <Statistics /> */}
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'Add-Contest',
+        element: (
+          <PrivateRoute>
+            <AddContest></AddContest>
+          </PrivateRoute>
+        ),
+      },
     //   {
     //     path: 'my-listings',
     //     element: (
@@ -102,6 +101,6 @@ export const router = createBrowserRouter([
     //       </PrivateRoute>
     //     ),
     //   },
-    // ],
+    ],
   },
 ])
