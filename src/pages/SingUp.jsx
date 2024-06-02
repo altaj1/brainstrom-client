@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 
 // import SocialLogin from "../../components/SocialLogin/SocialLogin";
 import useAuth from "../hooks/useAuth";
-import { Helmet } from "react-helmet";
+
 import { imageUpload } from "../api/utils/utils";
 
 const SignUp = () => {

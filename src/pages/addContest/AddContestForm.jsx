@@ -6,8 +6,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import { TbFidgetSpinner } from "react-icons/tb";
 
 const AddContestForm = ({
-    
-    dates,
+    setEndDate,
+    setStartDate,
+    startDate,
+    endDate,
     handleDates,
     handleSubmit,
     setImagePreview,
@@ -51,6 +53,9 @@ const AddContestForm = ({
                       {category.label}
                     </option>
                   ))} */}
+                  <option value='ai ingnirain'>
+                    ai engniring
+                  </option>
                 </select>
               </div>
   
@@ -59,7 +64,35 @@ const AddContestForm = ({
                   Select Availability Range
                 </label>
                 {/* Calender */}
-                {/* <DatePicker selected={new Date()} onChange={(date) =>handleDates(data)} /> */}
+                <div className="flex flex-row">
+                <div className="flex flex-col">
+                <label ><p>Select start date</p></label>
+                
+                <DatePicker
+                 required
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                selectsStart
+                startDate={startDate}
+                endDate={endDate}
+                placeholderText="Select start date"
+            />
+                </div>
+           <div className="flex flex-col">
+           <label htmlFor=""> <p>Select end date</p></label>
+            <DatePicker
+            required
+                selected={endDate}
+                onChange={(date) => setEndDate(date)}
+                selectsEnd
+                startDate={startDate}
+                endDate={endDate}
+                minDate={startDate}
+                placeholderText="Select end date"
+            />
+           </div>
+                </div>
+            
               </div>
             </div>
             <div className='space-y-6'>
