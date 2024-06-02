@@ -1,13 +1,14 @@
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
+
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 import AddContestForm from "./AddContestForm";
-import { Helmet } from "react-helmet-async";
+
 import { imageUpload } from "../../api/utils/utils";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
 const AddContest = () => {
@@ -19,43 +20,39 @@ const AddContest = () => {
     const [imageText, setImageText] = useState('Upload Image')
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
-  console.log(startDate, " now end dates", endDate)
-    //Date range handler
-    // const handleDates = item => {
-    //   setDates(item.selection)
-    // }
+  // console.log(startDate, " now end dates", endDate)
   
-    // const { mutateAsync } = useMutation({
-    //   mutationFn: async roomData => {
-    //     const { data } = await axiosSecure.post(`/room`, roomData)
-    //     return data
-    //   },
-    //   onSuccess: () => {
-    //     console.log('Data Saved Successfully')
-    //     toast.success('Room Added Successfully!')
-    //     navigate('/dashboard/my-listings')
-    //     setLoading(false)
-    //   },
-    // })
+    const { mutateAsync } = useMutation({
+      mutationFn: async contestData => {
+        const { data } = await axiosSecure.post(`/contest`, contestData)
+        return data
+      },
+      onSuccess: () => {
+        console.log('Data Saved Successfully')
+        toast.success('Contest Added Successfully!')
+        // navigate('/dashboard/my-listings')
+        setLoading(false)
+      },
+    })
   
     //   Form handler
     const handleSubmit = async e => {
       e.preventDefault()
       setLoading(true)
       const form = e.target
-      const location = form.location.value
+      const type = form.type.value
       const category = form.category.value
       const title = form.title.value
       const to =endDate
       const from = startDate
       const price = form.price.value
-      const guests = form.total_guest.value
-      const bathrooms = form.bathrooms.value
+      const prizeMoney = form.prizeMoney.value
+      const instruction = form.instruction.value
       const description = form.description.value
-      const bedrooms = form.bedrooms.value
+  
       const image = form.image.files[0]
   
-      const host = {
+      const contentCreator = {
         name: user?.displayName,
         image: user?.photoURL,
         email: user?.email,
@@ -63,24 +60,24 @@ const AddContest = () => {
   
       try {
         const image_url = await imageUpload(image)
-        const roomData = {
-          location,
+        const contestData = {
+          type,
           category,
           title,
           to,
           from,
           price,
-          guests,
-          bathrooms,
-          bedrooms,
-          host,
+          prizeMoney,
+          instruction,
+         
+          contentCreator,
           description,
           image: image_url,
         }
-        console.log(roomData)
+        console.log(contestData)
   
         //   Post request to server
-        // await mutateAsync(roomData)
+        await mutateAsync(contestData)
       } catch (err) {
         console.log(err)
         toast.error(err.message)
@@ -95,13 +92,8 @@ const AddContest = () => {
     }
     return (
         <div>
-             {/* <Helmet>
-        <title>Add Room | Dashboard</title>
-      </Helmet> */}
-
       {/* Form */}
       <AddContestForm
-    //    handleDates={handleDates}
        handleSubmit={handleSubmit}
        setImagePreview={setImagePreview}
        imagePreview={imagePreview}

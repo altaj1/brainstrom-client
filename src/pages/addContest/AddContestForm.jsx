@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { TbFidgetSpinner } from "react-icons/tb";
+import Heading from "../../components/Shared/Heading";
 
 const AddContestForm = ({
     setEndDate,
@@ -19,43 +20,43 @@ const AddContestForm = ({
     loading,
   }) => {
 
-
+const categories = ["Software Development", "Artificial Intelligence and Machine Learning", "Cybersecurity", "Cloud Computing", "Internet of Things (IoT)", "Data Science and Big Data", "Blockchain Technology", "IT Infrastructure and Networking", "Tech-driven Business Solutions" ]
     return (
         <div className='w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center text-gray-800 rounded-xl bg-gray-50'>
+
+          <Heading subtitle ='asjdfkahs' title='Add Contest Form'></Heading>
         <form onSubmit={handleSubmit}>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
             <div className='space-y-6'>
-              <div className='space-y-1 text-sm'>
-                <label htmlFor='location' className='block text-gray-600'>
-                  Location
+
+            <div className='space-y-1 text-sm'>
+                <label htmlFor='title' className='block text-gray-600'>
+                  Title
                 </label>
                 <input
                   className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
-                  name='location'
-                  id='location'
+                  name='title'
+                  id='title'
                   type='text'
-                  placeholder='Location'
+                  placeholder='Title'
                   required
                 />
               </div>
-  
               <div className='space-y-1 text-sm'>
                 <label htmlFor='category' className='block text-gray-600'>
                   Category
                 </label>
                 <select
                   required
-                  className='w-full px-4 py-3 border-rose-300 focus:outline-rose-500 rounded-md'
+                  className='w-full px-4 py-3 border-rose-300  focus:outline-rose-500 rounded-md '
                   name='category'
                 >
-                  {/* {categories.map(category => (
-                    <option value={category.label} key={category.label}>
-                      {category.label}
+                  {categories.map(category => (
+                    <option value={category} key={category} >
+                      {category}
                     </option>
-                  ))} */}
-                  <option value='ai ingnirain'>
-                    ai engniring
-                  </option>
+                  ))}
+                  
                 </select>
               </div>
   
@@ -96,16 +97,16 @@ const AddContestForm = ({
               </div>
             </div>
             <div className='space-y-6'>
+             
               <div className='space-y-1 text-sm'>
-                <label htmlFor='title' className='block text-gray-600'>
-                  Title
+                <label htmlFor='type' className='block text-gray-600'>
+                  Contest Type
                 </label>
                 <input
                   className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
-                  name='title'
-                  id='title'
+                  name='type'      
                   type='text'
-                  placeholder='Title'
+                  placeholder='Contest Type'
                   required
                 />
               </div>
@@ -123,7 +124,7 @@ const AddContestForm = ({
                         accept='image/*'
                         hidden
                       />
-                      <div className='bg-rose-500 text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-rose-500'>
+                      <div className='bg-[#FF6F61] text-white border border-gray-300 rounded font-semibold cursor-pointer p-1 px-3 hover:bg-rose-500'>
                         {/* {imageText} */}
                         {imageText.length > 20
                           ? imageText.split('.')[0].slice(0, 15) +
@@ -154,49 +155,34 @@ const AddContestForm = ({
                 </div>
   
                 <div className='space-y-1 text-sm'>
-                  <label htmlFor='guest' className='block text-gray-600'>
-                    Total guest
+                  <label  className='block text-gray-600'>
+                    Prize money
                   </label>
                   <input
                     className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
-                    name='total_guest'
+                    name='prizeMoney'
                     id='guest'
                     type='number'
-                    placeholder='Total guest'
+                    placeholder='Prize money'
                     required
                   />
                 </div>
               </div>
   
-              <div className='flex justify-between gap-2'>
+             
                 <div className='space-y-1 text-sm'>
-                  <label htmlFor='bedrooms' className='block text-gray-600'>
-                    Bedrooms
+                  <label  className='block text-gray-600'>
+                  Task Submission text instruction
                   </label>
-                  <input
-                    className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
-                    name='bedrooms'
-                    id='bedrooms'
+                  <textarea
+                    className='block rounded-md focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border border-rose-300 focus:outline-rose-500 '
+                    name='instruction'
+                    
                     type='number'
-                    placeholder='Bedrooms'
+                    placeholder='Task Submission text instruction'
                     required
                   />
                 </div>
-  
-                <div className='space-y-1 text-sm'>
-                  <label htmlFor='bathrooms' className='block text-gray-600'>
-                    Bathrooms
-                  </label>
-                  <input
-                    className='w-full px-4 py-3 text-gray-800 border border-rose-300 focus:outline-rose-500 rounded-md '
-                    name='bathrooms'
-                    id='bathrooms'
-                    type='number'
-                    placeholder='Bathrooms'
-                    required
-                  />
-                </div>
-              </div>
   
               <div className='space-y-1 text-sm'>
                 <label htmlFor='description' className='block text-gray-600'>
@@ -215,7 +201,7 @@ const AddContestForm = ({
           <button
             disabled={loading}
             type='submit'
-            className='w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-rose-500'
+            className='w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#FF6F61]'
           >
             {loading ? (
               <TbFidgetSpinner className='animate-spin m-auto' />
