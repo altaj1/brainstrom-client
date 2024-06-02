@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
 
@@ -17,42 +18,53 @@ const ContestDataRow = ({ contest, handleDelete, refetch }) => {
             <div className='block relative'>
               <img
                 alt='profile'
-                // src={room?.image}
+                src={contest?.image}
                 className='mx-auto object-cover rounded h-10 w-15 '
               />
             </div>
           </div>
           <div className='ml-3'>
-            {/* <p className='text-gray-900 whitespace-no-wrap'>{room?.title}</p> */}
+            <p className='text-gray-900 whitespace-no-wrap'>{contest?.title}</p>
           </div>
         </div>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        {/* <p className='text-gray-900 whitespace-no-wrap'>{room?.location}</p> */}
+        <p className='text-gray-900 whitespace-no-wrap'>$ {contest?.price}</p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        {/* <p className='text-gray-900 whitespace-no-wrap'>${room?.price}</p> */}
-      </td>
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'>
-          {/* {format(new Date(room?.from), 'P')} */}
-        </p>
+        <p className='text-gray-900 whitespace-no-wrap'>$ {contest?.prizeMoney}</p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <p className='text-gray-900 whitespace-no-wrap'>
-          {/* {format(new Date(room?.to), 'P')} */}
+          {contest?.status}
         </p>
       </td>
+      
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <button
-          onClick={() => setIsOpen(true)}
-          className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'
+      <button
+          onClick={() => setIsEditModalOpen(true)}
+          className='relative cursor-pointer inline-block px-3 py-1 font-semibold leading-tight'
         >
           <span
             aria-hidden='true'
-            className='absolute inset-0 bg-red-200 opacity-50 rounded-full'
+            className={`${contest?.status == "pending" ? 'bg-slate-300 text-slate-500' : 'bg-[#FF6F61]' } absolute inset-0     rounded-full`}
           ></span>
-          <span className='relative'>Delete</span>
+          <span className='relative'>Update</span>
+        </button>
+        {/* Delete modal */}
+        
+        
+      </td>
+      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+      <button
+          onClick={() => setIsEditModalOpen(true)}
+          className='relative cursor-pointer inline-block px-3 py-1 font-semibold  leading-tight'
+        >
+          <span
+            aria-hidden='true'
+            className={`${contest?.status == "pending" ? 'bg-slate-300 text-slate-500' : 'bg-[#FF6F61]' } absolute inset-0     rounded-full`}
+          ></span>
+          <span className='relative'>Submission</span>
         </button>
         {/* Delete modal */}
         
@@ -60,14 +72,15 @@ const ContestDataRow = ({ contest, handleDelete, refetch }) => {
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <button
+        disabled={!contest?.status}
           onClick={() => setIsEditModalOpen(true)}
-          className='relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight'
+          className={` relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight`} 
         >
           <span
             aria-hidden='true'
-            className='absolute inset-0 bg-green-200 opacity-50 rounded-full'
+            className='absolute inset-0 bg-rose-300 opacity-50 rounded-full'
           ></span>
-          <span className='relative'>Update</span>
+          <span className='relative'>Delet</span>
         </button>
         
       </td>

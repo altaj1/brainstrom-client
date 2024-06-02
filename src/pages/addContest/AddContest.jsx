@@ -58,7 +58,8 @@ const AddContest = () => {
       const description = form.description.value
   
       const image = form.image.files[0]
-  
+
+     
       const contentCreator = {
         name: user?.displayName,
         image: user?.photoURL,
@@ -79,6 +80,7 @@ const AddContest = () => {
           contentCreator,
           description,
           image: image_url,
+          status: "pending"
         }
         console.log(contestData)
   

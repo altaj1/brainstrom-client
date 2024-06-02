@@ -17,7 +17,7 @@ const Sidebar = () => {
   const [isActive, setActive] = useState(false)
   const [toggle, setToggle] = useState(true)
 //   const [role, isLoading] = useRole()
-     const role = 'creatorMenu'
+     const role = 'admin'
 //   console.log(role, isLoading)
   // Sidebar Responsive Handler
   const handleToggle = () => {

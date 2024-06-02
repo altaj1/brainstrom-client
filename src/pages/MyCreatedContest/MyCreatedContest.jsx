@@ -44,25 +44,19 @@ const MyCreatedContest = () => {
                         scope='col'
                         className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                       >
-                        Location
+                       Price
                       </th>
                       <th
                         scope='col'
                         className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                       >
-                        Price
+                        Prize Money
                       </th>
                       <th
                         scope='col'
                         className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                       >
-                        From
-                      </th>
-                      <th
-                        scope='col'
-                        className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                      >
-                        To
+                       status
                       </th>
                       <th
                         scope='col'
@@ -74,7 +68,13 @@ const MyCreatedContest = () => {
                         scope='col'
                         className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                       >
-                        Update
+                         Update
+                      </th>
+                      <th
+                        scope='col'
+                        className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                      >
+                       Submission
                       </th>
                     </tr>
                   </thead>

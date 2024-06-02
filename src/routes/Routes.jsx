@@ -6,6 +6,7 @@ import PrivateRoute from './PrivateRoute'
 import SignUp from '../pages/SingUp'
 import AddContest from '../pages/addContest/AddContest'
 import MyCreatedContest from '../pages/MyCreatedContest/MyCreatedContest'
+import ManageUsers from '../pages/Admin/ManageUsers'
 
 
 
@@ -64,16 +65,14 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-    //   {
-    //     path: 'manage-users',
-    //     element: (
-    //       <PrivateRoute>
-    //         <AdminRoute>
-    //           <ManageUsers />
-    //         </AdminRoute>
-    //       </PrivateRoute>
-    //     ),
-    //   },
+      {
+        path: 'manage-users',
+        element: (
+          <PrivateRoute>
+           <ManageUsers></ManageUsers>
+          </PrivateRoute>
+        ),
+      },
     //   {
     //     path: 'my-bookings',
     //     element: (
