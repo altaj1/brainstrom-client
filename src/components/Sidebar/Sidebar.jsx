@@ -11,13 +11,14 @@ import { GrLogout } from 'react-icons/gr'
 import UserMenu from './Menu/UserMenu'
 import AdminMenu from './Menu/AdminMenu'
 import CreatorMenu from './Menu/CreatorMenu'
+import useRole from '../../hooks/useRole'
 
 const Sidebar = () => {
   const { logOut } = useAuth()
   const [isActive, setActive] = useState(false)
   const [toggle, setToggle] = useState(true)
-//   const [role, isLoading] = useRole()
-     const role = 'admin'
+  const [role, isLoading] = useRole()
+     console.log(role)
 //   console.log(role, isLoading)
   // Sidebar Responsive Handler
   const handleToggle = () => {
@@ -73,12 +74,12 @@ const Sidebar = () => {
                 address='/dashboard'
                 icon={BsGraphUp}
               />
-              {role === 'user' && <UserMenu/>}
+              {role === 'User' && <UserMenu/>}
 
               
-              {role === 'creatorMenu' && <CreatorMenu></CreatorMenu>}
+              {role === ' Contest Creator' && <CreatorMenu></CreatorMenu>}
               
-              {role === 'admin' && <AdminMenu />}
+              {role === 'Admin' && <AdminMenu />}
             </nav>
           </div>
         </div>

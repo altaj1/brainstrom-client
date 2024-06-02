@@ -7,6 +7,7 @@ import SignUp from '../pages/SingUp'
 import AddContest from '../pages/addContest/AddContest'
 import MyCreatedContest from '../pages/MyCreatedContest/MyCreatedContest'
 import ManageUsers from '../pages/Admin/ManageUsers'
+import { ManageContest } from '../pages/Admin/ManageContest'
 
 
 
@@ -73,14 +74,14 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-    //   {
-    //     path: 'my-bookings',
-    //     element: (
-    //       <PrivateRoute>
-    //         <MyBookings />
-    //       </PrivateRoute>
-    //     ),
-    //   },
+      {
+        path: 'ManageContest',
+        element: (
+          <PrivateRoute>
+            <ManageContest></ManageContest>
+          </PrivateRoute>
+        ),
+      },
     //   {
     //     path: 'manage-bookings',
     //     element: (
