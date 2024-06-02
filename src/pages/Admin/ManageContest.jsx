@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import useAxiosSecure from "../../hooks/useAxiosSecure"
 import LoadingSpinner from "../../components/Shared/LoadingSpinner"
+import ManageContestDataRow from "../../components/TableDataRow/ManageContestDataRow"
 
 
 export const ManageContest = () => {
@@ -34,13 +35,7 @@ export const ManageContest = () => {
                     scope='col'
                     className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm  font-normal'
                   >
-                    Email
-                  </th>
-                  <th
-                    scope='col'
-                    className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm  font-normal'
-                  >
-                    Role
+                    Catagory
                   </th>
                   <th
                     scope='col'
@@ -48,18 +43,24 @@ export const ManageContest = () => {
                   >
                     Status
                   </th>
+                  <th
+                    scope='col'
+                    className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm  font-normal'
+                  >
+                   Confirm Status
+                  </th>
 
                   <th
                     scope='col'
                     className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm  font-normal'
                   >
-                    Confirm
+                    Comment
                   </th>
                   <th
                     scope='col'
                     className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm  font-normal'
                   >
-                    Comment
+                    Delet
                   </th>
                   {/* <th
                     scope='col'
@@ -67,21 +68,24 @@ export const ManageContest = () => {
                   >
                     Un Block User
                   </th> */}
-                  <th
+                  {/* <th
                     scope='col'
                     className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm  font-normal'
                   >
                     Delete
-                  </th>
+                  </th> */}
                 </tr>
               </thead>
               <tbody>
-                {/* {users.map(user =><UserDataRow
-                    key={user?._id}
-                    user={user}
-                    refetch={refetch}
-                  />
-                )} */}
+
+                {
+                    contests.map((contest, idx)=><ManageContestDataRow
+                    key={idx}
+                    contest = {contest}
+                    refetch = {refetch}
+                    ></ManageContestDataRow>)
+                }
+               <ManageContestDataRow></ManageContestDataRow>
               </tbody>
             </table>
           </div>
