@@ -5,6 +5,7 @@ import DashboardLayout from '../layout/DashboardLayout'
 import PrivateRoute from './PrivateRoute'
 import SignUp from '../pages/SingUp'
 import AddContest from '../pages/addContest/AddContest'
+import MyCreatedContest from '../pages/MyCreatedContest/MyCreatedContest'
 
 
 
@@ -55,16 +56,14 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-    //   {
-    //     path: 'my-listings',
-    //     element: (
-    //       <PrivateRoute>
-    //         <HostRoute>
-    //           <MyListings />
-    //         </HostRoute>
-    //       </PrivateRoute>
-    //     ),
-    //   },
+      {
+        path: 'MyCreatedContest',
+        element: (
+          <PrivateRoute>
+            <MyCreatedContest></MyCreatedContest>
+          </PrivateRoute>
+        ),
+      },
     //   {
     //     path: 'manage-users',
     //     element: (

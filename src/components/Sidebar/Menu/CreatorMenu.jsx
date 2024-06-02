@@ -7,7 +7,7 @@ const CreatorMenu = () => {
     return (
         <>
         <MenuItem icon={BsFillHouseAddFill} label='Add Contest' address='Add-Contest' />
-        <MenuItem icon={MdHomeWork} label='My Listings' address='my-listings' />
+        <MenuItem icon={MdHomeWork} label='My Created Contest' address='MyCreatedContest' />
         <MenuItem
           icon={MdOutlineManageHistory}
           label='Manage Bookings'

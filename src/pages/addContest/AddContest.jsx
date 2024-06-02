@@ -9,6 +9,7 @@ import AddContestForm from "./AddContestForm";
 import { imageUpload } from "../../api/utils/utils";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 
 const AddContest = () => {
@@ -29,7 +30,13 @@ const AddContest = () => {
       },
       onSuccess: () => {
         console.log('Data Saved Successfully')
-        toast.success('Contest Added Successfully!')
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Contest Post Successgully",
+          showConfirmButton: false,
+          timer: 1500
+        });
         // navigate('/dashboard/my-listings')
         setLoading(false)
       },
@@ -68,8 +75,7 @@ const AddContest = () => {
           from,
           price,
           prizeMoney,
-          instruction,
-         
+          instruction,        
           contentCreator,
           description,
           image: image_url,

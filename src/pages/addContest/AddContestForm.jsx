@@ -70,6 +70,7 @@ const categories = ["Software Development", "Artificial Intelligence and Machine
                 <label ><p>Select start date</p></label>
                 
                 <DatePicker
+                
                  required
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
