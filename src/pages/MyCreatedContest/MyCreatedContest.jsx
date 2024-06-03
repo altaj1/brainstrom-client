@@ -64,19 +64,21 @@ const MyCreatedContest = () => {
                         scope='col'
                         className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                       >
-                        Delete
-                      </th>
-                      <th
-                        scope='col'
-                        className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                      >
                          Update
+                        
                       </th>
                       <th
                         scope='col'
                         className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
                       >
-                       Submission
+                        Submission
+                         
+                      </th>
+                      <th
+                        scope='col'
+                        className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                      >
+                       Delete
                       </th>
                     </tr>
                   </thead>

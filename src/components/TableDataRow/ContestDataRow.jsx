@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import UpdateModal from "../Modal/UpdateModal";
 
 
 const ContestDataRow = ({ contest, handleDelete, refetch }) => {
@@ -36,13 +37,13 @@ const ContestDataRow = ({ contest, handleDelete, refetch }) => {
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <p className='text-gray-900 whitespace-no-wrap'>
-          {contest?.status}
+          {contest?.status == "Confirm" ?"Accepted": contest?.status }
         </p>
       </td>
       
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
       <button
-          onClick={() => setIsEditModalOpen(true)}
+          onClick={() => ()=>document.getElementById('my_modal_3')}
           className='relative cursor-pointer inline-block px-3 py-1 font-semibold leading-tight'
         >
           <span
@@ -51,8 +52,8 @@ const ContestDataRow = ({ contest, handleDelete, refetch }) => {
           ></span>
           <span className='relative'>Update</span>
         </button>
-        {/* Delete modal */}
-        
+        {/* Update modal */}
+        <UpdateModal id="my_modal_3"></UpdateModal>
         
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
