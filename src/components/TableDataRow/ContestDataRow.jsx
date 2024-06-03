@@ -1,16 +1,54 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import UpdateModal from "../Modal/UpdateModal";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
 const ContestDataRow = ({ contest, handleDelete, refetch }) => {
     const [isOpen, setIsOpen] = useState(false)
+    const axiosSecure = useAxiosSecure()
     const [isEditModalOpen, setIsEditModalOpen] = useState(false)
     const closeModal = () => {
       setIsOpen(false)
     }
-    console.log(contest, "contest")
-    console.log(handleDelete)
+    const openModal = ()=>{
+      setIsOpen(true)
+      console.log("kire vai hocche na keno")
+    }
+    // console.log(contest, "contest")
+    // console.log(handleDelete)
+    const handelDelete = async (id) => {
+      // console.log(id);
+  
+      
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then( async(result) => {
+    if (result.isConfirmed) {
+  
+      await axiosSecure.delete(`/delete-creator-contest/${id}`)
+      .then((res) => {
+          console.log(res.data);
+            refetch()
+            if (res.data) {
+              Swal.fire({
+                  title: "Deleted!",
+                  text: "Your file has been deleted.",
+                  icon: "success"
+                });
+            }
+  
+        });
+    }
+  });
+    };
     return (
         <tr>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -43,7 +81,7 @@ const ContestDataRow = ({ contest, handleDelete, refetch }) => {
       
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
       <button
-          onClick={() => ()=>document.getElementById('my_modal_3')}
+          onClick={openModal}
           className='relative cursor-pointer inline-block px-3 py-1 font-semibold leading-tight'
         >
           <span
@@ -53,7 +91,7 @@ const ContestDataRow = ({ contest, handleDelete, refetch }) => {
           <span className='relative'>Update</span>
         </button>
         {/* Update modal */}
-        <UpdateModal id="my_modal_3"></UpdateModal>
+        <UpdateModal contest={contest}  isEditModalOpen ={isEditModalOpen} isOpen={isOpen} closeModal={closeModal}></UpdateModal>
         
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
@@ -74,7 +112,7 @@ const ContestDataRow = ({ contest, handleDelete, refetch }) => {
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <button
         disabled={!contest?.status}
-          onClick={() => setIsEditModalOpen(true)}
+          onClick={() => handelDelete(contest._id)}
           className={` relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight`} 
         >
           <span

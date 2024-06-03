@@ -24,8 +24,16 @@ const MyCreatedContest = () => {
         return data
       },
     })
+    const handelDelete =async (id) =>{
+      console.log(id)
+      await axiosSecure.delete(`/creator-delete/user/${id}`)
+      .then(res => {
+          console.log(res.data)
+          refetch()
+      })
+   }
 
-    console.log(contests)
+    // console.log(contests)
     if (isLoading) return <LoadingSpinner />
     return (
         <>
@@ -91,7 +99,7 @@ const MyCreatedContest = () => {
                         contests.map((contest, idx) =><ContestDataRow 
                              key={idx}                           
                             contest={contest}
-                          
+                            handelDelete ={handelDelete}
                             refetch={refetch}                          
                             >
                             </ContestDataRow>

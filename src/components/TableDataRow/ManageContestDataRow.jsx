@@ -12,7 +12,7 @@ const ManageContestDataRow = ({ contest, refetch }) => {
   const { user: loggedInUser } = useAuth();
   const [confirm, setConfirm ] = useState(contest?.status);
   const axiosSecure = useAxiosSecure();
-  console.log(contest);
+  // console.log(contest);
   const { mutateAsync } = useMutation({
       mutationFn: async contestUpdateData => {
         const { data } = await axiosSecure.put(
@@ -23,7 +23,7 @@ const ManageContestDataRow = ({ contest, refetch }) => {
       },
       onSuccess: data => {
         refetch()
-        console.log(data)
+        // console.log(data)
         toast.success('User status updated successfully!')
       },
   });
@@ -34,7 +34,7 @@ const ManageContestDataRow = ({ contest, refetch }) => {
   const handelCommet =async (e)=>{
     e.preventDefault()
     const comment = e.target.comment.value
-    console.log(comment)
+    // console.log(comment)
     await mutateAsync({comment:comment})
 
     Swal.fire({
@@ -48,7 +48,7 @@ const ManageContestDataRow = ({ contest, refetch }) => {
   }
 
   const handelDelete = async (id) => {
-    console.log(id);
+    // console.log(id);
 
     
 Swal.fire({
