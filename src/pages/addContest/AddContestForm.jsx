@@ -179,7 +179,7 @@ const categories = ["Software Development", "Artificial Intelligence and Machine
                     className='block rounded-md focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border border-rose-300 focus:outline-rose-500 '
                     name='instruction'
                     
-                    type='number'
+                    type='text'
                     placeholder='Task Submission text instruction'
                     required
                   />
