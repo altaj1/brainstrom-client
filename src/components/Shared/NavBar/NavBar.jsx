@@ -7,9 +7,9 @@ import useAuth from "../../../hooks/useAuth";
 
 
 
-const NavBar = ({ setDarkMode, darkMode }) => {
-  const { user, setUser, logOut } = useAuth();
-  console.log(user)
+const NavBar = () => {
+  const { user, setUser, logOut, setDarkMode, darkMode } = useAuth();
+  
 
   const listItems = (
     <div className=" lg:flex  items-center gap-7">

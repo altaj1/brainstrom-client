@@ -8,6 +8,7 @@ import AddContest from '../pages/addContest/AddContest'
 import MyCreatedContest from '../pages/MyCreatedContest/MyCreatedContest'
 import ManageUsers from '../pages/Admin/ManageUsers'
 import { ManageContest } from '../pages/Admin/ManageContest'
+import Home from '../components/Home/Home'
 
 
 
@@ -18,10 +19,10 @@ export const router = createBrowserRouter([
     element: <Main />,
     // errorElement: <ErrorPage />,
     children: [
-    //   {
-    //     path: '/',
-    //     element: <Home />,
-    //   },
+      {
+        path: '/',
+        element: <Home></Home>,
+      },
     //   {
     //     path: '/room/:id',
     //     element: (
