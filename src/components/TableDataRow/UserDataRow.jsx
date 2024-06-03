@@ -83,7 +83,7 @@ const UserDataRow = ({ user, refetch }) => {
 
           <option value="Admin">Admin</option>
           <option value="User">User</option>
-          <option value=" Contest Creator">Contest Creator</option>
+          <option value="ContestCreator">Contest Creator</option>
         </select>
         <button onClick={handelRole}  className="bg-[#FF6F61] p-1 rounded-xl" >OK</button>
       </td>

@@ -9,8 +9,10 @@ import ContestDataRow from "../../components/TableDataRow/ContestDataRow";
 
 const MyCreatedContest = () => {
     const { user } = useAuth()
+    const {user: logdedUser } =useAuth()
     const axiosSecure = useAxiosSecure()
     //   Fetch Rooms Data
+
     const {
       data: contests = [],
       isLoading,
@@ -18,7 +20,7 @@ const MyCreatedContest = () => {
     } = useQuery({
       queryKey: ['MyCreatedContest', user?.email],
       queryFn: async () => {
-        const { data } = await axiosSecure.get(`/MyCreatedContest/${user?.email}`)
+        const { data } = await axiosSecure.get(`/MyCreatedContest/${logdedUser?.email}`)
         return data
       },
     })

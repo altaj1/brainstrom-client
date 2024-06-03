@@ -77,7 +77,7 @@ const Sidebar = () => {
               {role === 'User' && <UserMenu/>}
 
               
-              {role === ' Contest Creator' && <CreatorMenu></CreatorMenu>}
+              {role === 'ContestCreator' && <CreatorMenu></CreatorMenu>}
               
               {role === 'Admin' && <AdminMenu />}
             </nav>
