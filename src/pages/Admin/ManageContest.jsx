@@ -85,7 +85,7 @@ export const ManageContest = () => {
                     refetch = {refetch}
                     ></ManageContestDataRow>)
                 }
-               <ManageContestDataRow></ManageContestDataRow>
+               
               </tbody>
             </table>
           </div>
