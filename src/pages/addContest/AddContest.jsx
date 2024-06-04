@@ -86,6 +86,7 @@ const AddContest = () => {
   
         //   Post request to server
         await mutateAsync(contestData)
+        form.reset()
       } catch (err) {
         console.log(err)
         toast.error(err.message)

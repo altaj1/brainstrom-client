@@ -13,19 +13,30 @@ const ContestCard = ({contest}) => {
         price,
         description} = contest;
     return (
-        <div className="grid grid-cols-3 justify-around items-center h-auto p-12 w-[70%] mx-auto bg-slate-400">
-            <div className=" bg-yellow-200 h- " >
-                <img src={image} className="h-32 " alt="" />
+        <div className="dark:bg-gray-100 dark:text-gray-800">
+        <div className="container max-w-6xl px-10 py-6 mx-auto rounded-lg shadow-sm dark:bg-gray-50 grid grid-cols-3">
+            <div className="flex items-center flex-col justify-center">
+               <img src={image} alt="" />
             </div>
-            {/* center */}
-            <div className=" bg-purple-300">
-                <h1 className="text-2xl">{title}</h1>
+            <div className="mt-3 text-center">
+                <h4 className="text-2xl font-bold hover:underline">{title}</h4>
+                <p className="mt-2"> {description.length > 50
+                        ? description.split(".")[0].slice(0, 30 ) +
+                          "...." +
+                          description.split(".")[1]
+                        : description}</p>
+            </div>
+            <div className="flex items-center flex-col justify-between mt-4">
+                <a rel="noopener noreferrer" href="#" className="hover:underline dark:text-violet-600">Read more</a>
                 <div>
-                    <p>participants:{contest?.participants}</p>
+                    <a rel="noopener noreferrer" href="#" className="flex items-center">
+                        <img src="https://source.unsplash.com/50x50/?portrait" alt="avatar" className="object-cover w-10 h-10 mx-4 rounded-full dark:bg-gray-500" />
+                        <span className="hover:underline dark:text-gray-600">Leroy Jenkins</span>
+                    </a>
                 </div>
             </div>
-            <div className=" bg-rose-400">end</div>
         </div>
+    </div>
     );
 };
 

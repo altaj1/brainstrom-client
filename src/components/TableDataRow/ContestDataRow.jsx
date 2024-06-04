@@ -81,6 +81,7 @@ const ContestDataRow = ({ contest, handleDelete, refetch }) => {
       
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
       <button
+      disabled ={contest?.status == "pending"}
           onClick={openModal}
           className='relative cursor-pointer inline-block px-3 py-1 font-semibold leading-tight'
         >
@@ -111,7 +112,7 @@ const ContestDataRow = ({ contest, handleDelete, refetch }) => {
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         <button
-        disabled={!contest?.status}
+        disabled ={contest?.status == "pending"}
           onClick={() => handelDelete(contest._id)}
           className={` relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight`} 
         >

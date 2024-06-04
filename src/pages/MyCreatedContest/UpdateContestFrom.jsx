@@ -3,12 +3,12 @@ import ReactDatePicker from "react-datepicker";
 import { TbFidgetSpinner } from "react-icons/tb";
 
 const UpdateContestFrom = ({   setEndDate,
-    setStartDate,
+    
     startDate,
     endDate,
     handleDates,
     handleSubmit,
-    setImagePreview,
+    
     imagePreview,
     imageText,
     // eslint-disable-next-line react/prop-types

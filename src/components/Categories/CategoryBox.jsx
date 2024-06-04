@@ -8,6 +8,8 @@ const CategoryBox = ({label, icon: Icon, handelCategory}) => {
         <div
         onClick={()=>handelCategory(label)}
         className={`flex 
+        h-32 w-32
+        overflow-hidden
       flex-col 
       items-center 
       justify-center 
