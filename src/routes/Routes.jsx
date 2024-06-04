@@ -10,6 +10,7 @@ import ManageUsers from '../pages/Admin/ManageUsers'
 import { ManageContest } from '../pages/Admin/ManageContest'
 import Home from '../components/Home/Home'
 import ContestDetails from '../components/Details/ContestDetails'
+import SubmitPage from '../pages/User/SubmitPage'
 
 
 
@@ -29,6 +30,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
            <ContestDetails></ContestDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: '/submitPage/:id',
+        element: (
+          <PrivateRoute>
+          <SubmitPage></SubmitPage>
           </PrivateRoute>
         ),
       },

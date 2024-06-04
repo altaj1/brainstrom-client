@@ -110,7 +110,6 @@ const UpdateModal = ({isOpen, closeModal, isEditModalOpen,  contest}) => {
           backgroundColor: "lightblue",
           top: '50%',
           left: '50%',
-          
           right: 'auto',
           // bottom: 'auto',
           marginRight: '-50%',
@@ -131,11 +130,10 @@ const UpdateModal = ({isOpen, closeModal, isEditModalOpen,  contest}) => {
         style={customStyles}
        
       >
-        {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2> */}
+        
         <div className='text-right   rounded-full'>
         <button className='btn mt-10  font-bold text-white rounded-full bg-[#FF6F61] text-2xl ' onClick={closeModal}><IoIosCloseCircleOutline /></button>
         </div>
-        
         <UpdateContestFrom 
          handleSubmit={handleSubmit}
          setImagePreview={setImagePreview}
@@ -147,7 +145,6 @@ const UpdateModal = ({isOpen, closeModal, isEditModalOpen,  contest}) => {
          setStartDate = {setStartDate}
          endDate={endDate}
         setEndDate = {setEndDate}
-       
         ></UpdateContestFrom>
       </Modal>
        </div>
