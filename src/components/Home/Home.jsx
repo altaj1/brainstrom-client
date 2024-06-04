@@ -38,14 +38,14 @@ const Home = () => {
             searchText ={searchText}
             setSearchText={setSearchText}></Banner>
 
-            <div className="">
+            
             <Categories
             handelCategory ={handelCategory}
             ></Categories>
-            </div>
+           
             
             
-            <div className="grid grid-cols-1 gap-5">
+            <div className="grid grid-cols-1 gap-5 space-y-3">
                 {
                     contests.map((contest, idx)=><ContestCard
                     key={idx}

@@ -9,6 +9,7 @@ import MyCreatedContest from '../pages/MyCreatedContest/MyCreatedContest'
 import ManageUsers from '../pages/Admin/ManageUsers'
 import { ManageContest } from '../pages/Admin/ManageContest'
 import Home from '../components/Home/Home'
+import ContestDetails from '../components/Details/ContestDetails'
 
 
 
@@ -23,14 +24,14 @@ export const router = createBrowserRouter([
         path: '/',
         element: <Home></Home>,
       },
-    //   {
-    //     path: '/room/:id',
-    //     element: (
-    //       <PrivateRoute>
-    //         <RoomDetails />
-    //       </PrivateRoute>
-    //     ),
-    //   },
+      {
+        path: '/contestDetails/:id',
+        element: (
+          <PrivateRoute>
+           <ContestDetails></ContestDetails>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   { path: '/login', element: <Login /> },
