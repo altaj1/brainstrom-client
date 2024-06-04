@@ -7,9 +7,6 @@ import { Link } from "react-router-dom";
 const ContestCard = ({contest}) => {
     console.log(contest)
     const {
-        
-
-
         title,
         image,
         from,
@@ -48,6 +45,7 @@ const ContestCard = ({contest}) => {
             <div className="flex items-center flex-col justify-between mt-4">
                 <p>Price: ${price}</p>
                 <p>Prize Money: ${prizeMoney}</p>
+                <p>Participants: {contest?.participants || '0'}</p>
                 <div className="mt-5 lg:0">
                     <Link to={`/contestDetails/${_id}`} className="bg-[#FF6F61] p-3 rounded-lg font-medium text-white hover:shadow-lg">View Details</Link>
                 </div>

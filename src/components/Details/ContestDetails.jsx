@@ -3,9 +3,25 @@ import useAxiosCommon from "../../hooks/useAxosCommon";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../Shared/LoadingSpinner";
 
+import Heading from "../Shared/Heading";
+import Container from "../Shared/Container";
+import { useState } from "react";
+import RegistrationModal from "../Modal/RegistrationModal";
+
+
 
 
 const ContestDetails = () => {
+    const [isOpen, setIsOpen] = useState(false)
+    
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+    const closeModal = () => {
+      setIsOpen(false)
+    }
+    const openModal = ()=>{
+      setIsOpen(true)
+      console.log("kire vai hocche na keno")
+    }
     const { id } = useParams()
     const axiosCommon = useAxiosCommon()
   
@@ -23,83 +39,102 @@ const ContestDetails = () => {
   
     if (isLoading) return <LoadingSpinner />
     console.log(contest)
-    return ( <p>this is rome details</p>
-    //     <Container>
+
+    const {
+        title,
+        image,
+        from,
+        to,
+        type,
+        prizeMoney,
+        price,
+        _id,
+        description,
+    } = contest;
+    return ( 
+        <Container>
       
-    //   {room && (
-    //     <div className='max-w-screen-lg mx-auto'>
-    //       {/* Header */}
-    //       <div className='flex flex-col gap-6'>
-    //         <div>
-    //           {/* <Heading title={room.title} subtitle={room.location} /> */}
-    //           <div className='w-full md:h-[60vh] overflow-hidden rounded-xl'>
-    //             <img
-    //               className='object-cover w-full'
-    //             //   src={room.image}
-    //               alt='header image'
-    //             />
-    //           </div>
-    //         </div>
-    //       </div>
-    //       <div className='grid grid-cols-1 md:grid-cols-7 md:gap-10 mt-6'>
-    //         {/* Room Info */}
-    //         <div className='col-span-4 flex flex-col gap-8'>
-    //           <div className='flex flex-col gap-2'>
-    //             <div
-    //               className='
-    //             text-xl 
-    //             font-semibold 
-    //             flex 
-    //             flex-row 
-    //             items-center
-    //             gap-2
-    //           '
-    //             >
-    //               {/* <div>Hosted by {room?.host?.name}</div> */}
+      {contest && (
+        <div className='max-w-screen-lg mx-auto'>
+          {/* Header */}
+          <div className='flex flex-col gap-6'>
+            <div>
+              <Heading title={title} subtitle={""} />
+              <div className='w-full md:h-[60vh] overflow-hidden rounded-xl'>
+                <img
+                  className='object-cover w-full'
+                  src={image}
+                  alt='header image'
+                />
+              </div>
+            </div>
+          </div>
+          <div className='grid grid-cols-1 md:grid-cols-7 md:gap-10 mt-6'>
+            
+            <div className='col-span-4 flex flex-col gap-8'>
+              <div className='flex flex-col gap-2'>
+                <div
+                  className='
+                text-xl 
+                font-semibold 
+                flex 
+                flex-row 
+                items-center
+                gap-2
+              '
+                >
+                 
+                </div>
+                <div
+                  className='
+                flex 
+                flex-row 
+                items-center 
+                gap-4 
+                font-light
+                text-neutral-500
+              '
+                >
+                  <div>Price: ${price}</div>
+                  <div>Prize Money: ${prizeMoney}</div>
+                  <p>Participants: {contest?.participants || '0'}</p>
+                </div>
+                <div className='
+                flex 
+                flex-col
+                
+                gap-4 
+                font-light
+                text-neutral-500
+              '>
+                    <p>Post Date: {from.toLocaleString("en-BD")}</p>
+                    <p>Last Date:{to.toLocaleString("en-BD")}</p>
+                </div>
+              </div>
 
-    //               <img
-    //                 className='rounded-full'
-    //                 height='30'
-    //                 width='30'
-    //                 alt='Avatar'
-    //                 referrerPolicy='no-referrer'
-    //                 // src={room?.host?.image}
-    //               />
-    //             </div>
-    //             <div
-    //               className='
-    //             flex 
-    //             flex-row 
-    //             items-center 
-    //             gap-4 
-    //             font-light
-    //             text-neutral-500
-    //           '
-    //             >
-    //               <div>{room?.guests} guests</div>
-    //               <div>{room?.bedrooms} rooms</div>
-    //               <div>{room?.bathrooms} bathrooms</div>
-    //             </div>
-    //           </div>
+              <hr />
+              <div
+                className='
+          text-lg font-light text-neutral-500'
+              >
+                {description}
+              </div>
+              <hr />
+            </div>
 
-    //           <hr />
-    //           <div
-    //             className='
-    //       text-lg font-light text-neutral-500'
-    //           >
-    //             {room?.description}
-    //           </div>
-    //           <hr />
-    //         </div>
+            <div className='md:col-span-3 order-first md:order-last mb-10'>
+            
+            {/* <RegistrationModal isOpen={isOpen} closeModal={closeModal}></RegistrationModal> */}
+            </div>
+          </div>
+          <div className="text-end pb-12">
 
-    //         <div className='md:col-span-3 order-first md:order-last mb-10'>
-    //           {/* RoomReservation */}
-    //           <RoomReservation refetch={refetch} room={room} />
-    //         </div>
-    //       </div>
-    //     </div>
-    //   )}
-    // </Container>
+          <button onClick={openModal} className="bg-[#FF6F61] p-3 rounded-lg font-medium text-white hover:shadow-lg">Registration Now</button>
+          <RegistrationModal isOpen={isOpen} contest={contest} isEditModalOpen ={isEditModalOpen} closeModal={closeModal}></RegistrationModal>
+          </div>
+        </div>
+      )}
+    </Container>
     );
 };
 

@@ -107,18 +107,23 @@ const UpdateModal = ({isOpen, closeModal, isEditModalOpen,  contest}) => {
     // console.log(contest)
     const customStyles = {
         content: {
+          backgroundColor: "lightblue",
           top: '50%',
           left: '50%',
+          
           right: 'auto',
-          bottom: 'auto',
+          // bottom: 'auto',
           marginRight: '-50%',
           transform: 'translate(-50%, -50%)',
+          // marginTop:'50px'
+         
         },
       };
       Modal.setAppElement('#root')
 
     return (
-        <Modal
+       <div >
+         <Modal
         
         isOpen={isOpen}
         // onAfterOpen={isEditModalOpen}
@@ -127,8 +132,8 @@ const UpdateModal = ({isOpen, closeModal, isEditModalOpen,  contest}) => {
        
       >
         {/* <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2> */}
-        <div className='text-right h-3  rounded-full'>
-        <button className='btn mt-10 font-bold text-white rounded-full bg-[#FF6F61] text-2xl ' onClick={closeModal}><IoIosCloseCircleOutline /></button>
+        <div className='text-right   rounded-full'>
+        <button className='btn mt-10  font-bold text-white rounded-full bg-[#FF6F61] text-2xl ' onClick={closeModal}><IoIosCloseCircleOutline /></button>
         </div>
         
         <UpdateContestFrom 
@@ -145,6 +150,7 @@ const UpdateModal = ({isOpen, closeModal, isEditModalOpen,  contest}) => {
        
         ></UpdateContestFrom>
       </Modal>
+       </div>
     );
 };
 

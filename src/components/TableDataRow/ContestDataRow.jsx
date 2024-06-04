@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
-const ContestDataRow = ({ contest, handleDelete, refetch }) => {
+const ContestDataRow = ({ contest, refetch }) => {
     const [isOpen, setIsOpen] = useState(false)
     const axiosSecure = useAxiosSecure()
     const [isEditModalOpen, setIsEditModalOpen] = useState(false)
@@ -51,7 +51,7 @@ const ContestDataRow = ({ contest, handleDelete, refetch }) => {
     };
     return (
         <tr>
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+      <td className='px-5 py-5 border-b border-gray-200  text-sm'>
         <div className='flex items-center'>
           <div className='flex-shrink-0'>
             <div className='block relative'>
@@ -63,23 +63,23 @@ const ContestDataRow = ({ contest, handleDelete, refetch }) => {
             </div>
           </div>
           <div className='ml-3'>
-            <p className='text-gray-900 whitespace-no-wrap'>{contest?.title}</p>
+            <p className=' whitespace-no-wrap'>{contest?.title}</p>
           </div>
         </div>
       </td>
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'>$ {contest?.price}</p>
+      <td className='px-5 py-5 border-b border-gray-200  text-sm'>
+        <p className=' whitespace-no-wrap'>$ {contest?.price}</p>
       </td>
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'>$ {contest?.prizeMoney}</p>
+      <td className='px-5 py-5 border-b border-gray-200 e text-sm'>
+        <p className=' whitespace-no-wrap'>$ {contest?.prizeMoney}</p>
       </td>
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'>
+      <td className='px-5 py-5 border-b border-gray-200  text-sm'>
+        <p className=' whitespace-no-wrap'>
           {contest?.status == "Confirm" ?"Accepted": contest?.status }
         </p>
       </td>
       
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+      <td className='px-5 py-5 border-b border-gray-200  text-sm'>
       <button
       disabled ={contest?.status == "pending"}
           onClick={openModal}
@@ -95,7 +95,7 @@ const ContestDataRow = ({ contest, handleDelete, refetch }) => {
         <UpdateModal contest={contest}  isEditModalOpen ={isEditModalOpen} isOpen={isOpen} closeModal={closeModal}></UpdateModal>
         
       </td>
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+      <td className='px-5 py-5 border-b border-gray-200  text-sm'>
       <button
           onClick={() => setIsEditModalOpen(true)}
           className='relative cursor-pointer inline-block px-3 py-1 font-semibold  leading-tight'
@@ -110,7 +110,7 @@ const ContestDataRow = ({ contest, handleDelete, refetch }) => {
         
         
       </td>
-      <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
+      <td className='px-5 py-5 border-b border-gray-200  text-sm'>
         <button
         disabled ={contest?.status == "pending"}
           onClick={() => handelDelete(contest._id)}
