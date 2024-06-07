@@ -41,10 +41,7 @@ const Home = () => {
             
             <Categories
             handelCategory ={handelCategory}
-            ></Categories>
-           
-            
-            
+            ></Categories> 
             <div className="grid grid-cols-1 gap-5 space-y-3">
                 {
                     contests.map((contest, idx)=><ContestCard

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-
+import { differenceInCalendarDays } from 'date-fns';
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
 
@@ -33,7 +33,10 @@ const ContestCard = ({contest}) => {
 
                         <div className="flex gap-7">
                             <p>
-                            From: {format(new Date(from), 'PP')} 
+
+                          about  {
+                            differenceInCalendarDays(new Date(to), new Date(from))
+                           } <span> days left</span>
                             </p>
                             <div className="flex items-center ">
                                 <img className="h-5" src="https://i.ibb.co/KLjpDLY/online-removebg-preview.png" alt="" />

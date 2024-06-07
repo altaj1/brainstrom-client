@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 
@@ -22,9 +23,16 @@ const SubmitPage = () => {
             }
           }
         const {data} = await axiosSecure.put(`/SubmitPage?id=${id}&email=${user.email}`, submetData);
-        console.log(data)
-        if (data) {
-        console.log("submit secces fully")
+        console.log(data.modifiedCount)
+        if (data.modifiedCount) {
+        console.log("submit Successful")
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Submit Successful",
+            showConfirmButton: false,
+            timer: 1500
+          });
         }
     }
     console.log(id)
@@ -32,7 +40,7 @@ const SubmitPage = () => {
         <div className="flex flex-col items-center justify-center">
             <h1 className="text-2xl">submit your paper</h1>
            <form className="mt-16 "  onSubmit={handelSubmit}>
-           <label htmlFor="">Wright Your Contest</label>
+           <label htmlFor="">Google DOC Link for This  Contest</label>
             <div>
             <textarea className="textarea textarea-accent overflow-auto h-72 w-96" name="contestPaper" placeholder="Wright Your Contest"></textarea>
             <div className="text-center">

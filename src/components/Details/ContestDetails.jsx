@@ -107,8 +107,8 @@ const ContestDetails = () => {
                 font-light
                 text-neutral-500
               '>
-                    <p>Post Date: {from.toLocaleString("en-BD")}</p>
-                    <p>Last Date:{to.toLocaleString("en-BD")}</p>
+                    <p>Post Date: {new Date(from).toLocaleString("en-BD")}</p>
+                    <p>Last Date: {new Date(to).toLocaleString("en-BD")}</p>
                 </div>
               </div>
 

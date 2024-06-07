@@ -25,6 +25,7 @@ const CommentModal = ({isOpen, closeModal, isEditModalOpen,  contest}) => {
                 timer: 1500
               });
           console.log(data)
+          closeModal()
           
         },
     });

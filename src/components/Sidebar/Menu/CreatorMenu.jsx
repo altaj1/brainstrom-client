@@ -1,17 +1,18 @@
-import { BsFillHouseAddFill } from "react-icons/bs";
+import { MdCreateNewFolder } from "react-icons/md";
 import MenuItem from "./Menuitem";
-import { MdHomeWork, MdOutlineManageHistory } from "react-icons/md";
+import { IoCreate } from "react-icons/io5";
+import { GrDocumentConfig } from "react-icons/gr";
 
 
 const CreatorMenu = () => {
     return (
         <>
-        <MenuItem icon={BsFillHouseAddFill} label='Add Contest' address='Add-Contest' />
-        <MenuItem icon={MdHomeWork} label='My Created Contest' address='MyCreatedContest' />
+        <MenuItem icon={MdCreateNewFolder} label='Add Contest' address='Add-Contest' />
+        <MenuItem icon={IoCreate} label='My Created Contest' address='MyCreatedContest' />
         <MenuItem
-          icon={MdOutlineManageHistory}
-          label='Manage Bookings'
-          address='manage-bookings'
+          icon={GrDocumentConfig}
+          label='Contest Submitted'
+          address='ContestSubmitted'
         />
       </>
     );

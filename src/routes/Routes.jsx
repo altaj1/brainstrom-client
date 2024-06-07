@@ -12,6 +12,10 @@ import Home from '../components/Home/Home'
 import ContestDetails from '../components/Details/ContestDetails'
 import SubmitPage from '../pages/User/SubmitPage'
 import MyParticipatedContest from '../pages/User/MyParticipatedContest'
+import ContestSubmittedPages from '../pages/Creator/ContestSubmittedPages'
+
+
+
 
 
 
@@ -102,14 +106,14 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-    //   {
-    //     path: 'profile',
-    //     element: (
-    //       <PrivateRoute>
-    //         <Profile />
-    //       </PrivateRoute>
-    //     ),
-    //   },
+      {
+        path: 'ContestSubmitted',
+        element: (
+          <PrivateRoute>
+          <ContestSubmittedPages></ContestSubmittedPages>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ])
