@@ -3,21 +3,21 @@
 
 import MenuItem from "./Menuitem"
 import { BsFingerprint } from "react-icons/bs"
-
+import { SiMyspace } from "react-icons/si";
 
 const UserMenu = () => {
 
   return (
     <>
       <MenuItem
-        icon={BsFingerprint}
+        icon={SiMyspace}
         label='My Participated Contest'
         address='MyParticipatedContest'
       />
       <MenuItem
         icon={BsFingerprint}
-        label='MyWinningContestPage'
-        address='MyParticipatedContest'
+        label='My Winning Contest Page'
+        address='My Winning Contest Page'
       />
 
     </>

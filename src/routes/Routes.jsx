@@ -11,6 +11,7 @@ import { ManageContest } from '../pages/Admin/ManageContest'
 import Home from '../components/Home/Home'
 import ContestDetails from '../components/Details/ContestDetails'
 import SubmitPage from '../pages/User/SubmitPage'
+import MyParticipatedContest from '../pages/User/MyParticipatedContest'
 
 
 
@@ -93,16 +94,14 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-    //   {
-    //     path: 'manage-bookings',
-    //     element: (
-    //       <PrivateRoute>
-    //         <HostRoute>
-    //           <ManageBookings />
-    //         </HostRoute>
-    //       </PrivateRoute>
-    //     ),
-    //   },
+      {
+        path: 'MyParticipatedContest',
+        element: (
+          <PrivateRoute>
+            <MyParticipatedContest></MyParticipatedContest>
+          </PrivateRoute>
+        ),
+      },
     //   {
     //     path: 'profile',
     //     element: (
