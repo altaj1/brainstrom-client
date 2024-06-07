@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 
 const MenuItem = ({ label, address, icon: Icon }) => {
+  
   return (
     <NavLink
       to={address}

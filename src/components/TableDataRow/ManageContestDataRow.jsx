@@ -5,21 +5,35 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useMutation } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
-import { comment } from "postcss";
+
 import Swal from "sweetalert2";
+import CommentModal from "../Modal/CommentModal";
+
 
 const ManageContestDataRow = ({ contest, refetch }) => {
+  const [commentID, setCommentID] = useState('')
   const { user: loggedInUser } = useAuth();
+ 
   const [confirm, setConfirm ] = useState(contest?.status);
   const axiosSecure = useAxiosSecure();
-  // console.log(contest);
+  
+  const [isOpen, setIsOpen] = useState(false)
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+  const closeModal = () => {
+    setIsOpen(false)
+  }
+  const openModal = ()=>{
+    setIsOpen(true)
+    console.log("kire vai hocche na keno")
+  }
   const { mutateAsync } = useMutation({
-      mutationFn: async contestUpdateData => {
+      mutationFn: async (contestUpdateData) => {
         const { data } = await axiosSecure.put(
           `/contest/update/${contest._id}`,
           contestUpdateData
         )
         return data
+        
       },
       onSuccess: data => {
         refetch()
@@ -31,21 +45,7 @@ const ManageContestDataRow = ({ contest, refetch }) => {
    await mutateAsync(
       {status:confirm});
   }
-  const handelCommet =async (e)=>{
-    e.preventDefault()
-    const comment = e.target.comment.value
-    // console.log(comment)
-    await mutateAsync({comment:comment})
 
-    Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Your work has been saved",
-        showConfirmButton: false,
-        timer: 1500
-      });
-      e.target.reset()
-  }
 
   const handelDelete = async (id) => {
     // console.log(id);
@@ -64,7 +64,7 @@ Swal.fire({
 
     await axiosSecure.delete(`/delete/contest/${id}`)
     .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
           refetch()
           if (res.data) {
             Swal.fire({
@@ -115,34 +115,16 @@ Swal.fire({
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         <button
-          onClick={()=>document.getElementById('commentModal').showModal()}
+          onClick={()=>{
+            openModal()
+            setCommentID(contest._id)
+            
+          }}
           className="bg-[#FF6F61] p-1 rounded-xl"
         >
           Comment
         </button>
-        <dialog id="commentModal"  className="modal">
-          <div className="modal-box">
-            <form method="dialog">
-              {/* if there is a button in form, it will close the modal */}
-              <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-                ✕
-              </button>
-            </form>
-
-            <div className="mt-10">
-            <form onSubmit={handelCommet}>
-            <textarea
-                    className='block rounded-md focus:rose-300 w-full h-32 px-4 py-3 text-gray-800  border border-rose-300 focus:outline-rose-500 '
-                    name='comment'                  
-                    type='text'
-                    placeholder='Commet On This Contest'
-                    required
-                  />
-                  <input type="submit" value="Submit" className="w-full p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#FF6F61]" />
-            </form>
-            </div>
-          </div>
-        </dialog>
+        <CommentModal  isEditModalOpen={isEditModalOpen} isOpen={isOpen} closeModal={closeModal} contest={contest}></CommentModal>
       </td>
       
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">

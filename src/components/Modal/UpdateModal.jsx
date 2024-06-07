@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
 import { IoIosCloseCircleOutline } from "react-icons/io";
-const UpdateModal = ({isOpen, closeModal, isEditModalOpen,  contest}) => {
+const UpdateModal = ({isOpen, closeModal, contest, isEditModalOpen}) => {
 
     const navigate = useNavigate()
     const axiosSecure = useAxiosSecure()
@@ -21,6 +21,7 @@ const UpdateModal = ({isOpen, closeModal, isEditModalOpen,  contest}) => {
     const [imageText, setImageText] = useState('Upload Image')
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
+    
   // console.log(startDate, " now end dates", endDate)
   console.log(imagePreview)
     const { mutateAsync } = useMutation({
