@@ -1,6 +1,64 @@
-const DeclareContestCard = ({ contest }) => {
-  const { contest_paper, date, participate, price, prizeMoney } = contest;
-  console.log(contest);
+import { useMutation } from "@tanstack/react-query";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
+
+const DeclareContestCard = ({ contest, refetch }) => {
+  const { contest_paper, date, participate, price, prizeMoney, contestId } = contest;
+//   console.log(contest);
+const axiosSecure = useAxiosSecure();
+// update contest coloction
+const { mutateAsync } = useMutation({
+    mutationFn: async (winerData) => {
+       
+      const { data } = await axiosSecure.put(
+        `/update-contest/creator/${winerData.winerCotestId}`,
+       { winerData}
+      )
+      return data
+      
+    },
+    onSuccess: data => {
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Decler Contest Winer",
+            showConfirmButton: false,
+            timer: 1500
+          });
+      console.log(data)
+      refetch()
+      
+    },
+});
+// update register coloction
+const { mutateAsync: updateRegister } = useMutation({
+    mutationFn: async (winerData) => {
+       
+      const { data } = await axiosSecure.put(
+        `/update-contest-register/creator/${winerData.winerCotestId}`,
+       { winerData}
+      )
+      return data
+      
+    },
+    onSuccess: data => {
+        // Swal.fire({
+        //     position: "top-end",
+        //     icon: "success",
+        //     title: "Decler Contest Winer",
+        //     showConfirmButton: false,
+        //     timer: 1500
+        //   });
+      console.log(data)
+      refetch()
+      
+    },
+});
+  const handelWiner = (winerData)=>{
+    console.log(winerData)
+mutateAsync(winerData)
+updateRegister(winerData)
+  }
   return (
     <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
       <div className="flex space-x-4">
@@ -26,9 +84,21 @@ const DeclareContestCard = ({ contest }) => {
       </div>
       
       <div className="text-center">
-        <button className=" p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#FF6F61]">
+       {
+        contest?.winerData ? <button className=" p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#FF6F61]">Already Declared Of Ther Winner</button>
+        :   <button onClick={()=>{
+            
+            const winner = {
+                winerName: participate?.name,
+                winerEmal: participate?.email,
+                winerCotestId:contestId
+            }
+            handelWiner(winner)
+        }} className=" p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#FF6F61]">
           Winner Of The Contest
         </button>
+       }
+      
       </div>
     </div>
   );

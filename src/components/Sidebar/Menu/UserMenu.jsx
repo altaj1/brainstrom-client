@@ -17,7 +17,7 @@ const UserMenu = () => {
       <MenuItem
         icon={BsFingerprint}
         label='My Winning Contest Page'
-        address='My Winning Contest Page'
+        address='myWinningContest'
       />
 
     </>

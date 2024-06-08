@@ -1,12 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-
+import { differenceInCalendarDays } from "date-fns";
+import { MdOutlineVerified } from "react-icons/md";
 
 const ParticipatedDataRow = ({participated}) => {
   const {user} = useAuth();
-    
-    const axiosSecure = useAxiosSecure()
     const {    
 title,
  to,
@@ -15,6 +14,8 @@ prizeMoney,
 date,
 contestId,
 price,
+paymentIntent_status
+
 } = participated;
 // console.log(participated)
 const handelSubmitPaper = async (e)=>{
@@ -22,8 +23,6 @@ const handelSubmitPaper = async (e)=>{
     const contestPaper = e.target.contestPaper.value
     console.log(contestPaper)
     console.log(contestId)
-    
-
 }
     return ( 
         <tr>
@@ -38,7 +37,7 @@ const handelSubmitPaper = async (e)=>{
           {prizeMoney}
         </td>
         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-          {to.toLocaleString()}
+          { differenceInCalendarDays(new Date(to), new Date())} days left
         </td>
         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
           <Link to={`/submitPage/${contestId}`}> Submit Paper</Link>
@@ -46,7 +45,9 @@ const handelSubmitPaper = async (e)=>{
       
         </td>
         
-        
+        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+       <div className="flex items-center justify-center gap-2 "> <MdOutlineVerified /> <span>{paymentIntent_status}</span></div>
+        </td>
       </tr>
     );
 };

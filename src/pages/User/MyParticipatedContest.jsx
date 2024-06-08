@@ -54,14 +54,15 @@ const MyParticipatedContest = () => {
                       scope='col'
                       className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm  font-normal'
                     >
-                      Type
+                       Submit Paper
                     </th>
                     <th
                       scope='col'
                       className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm  font-normal'
                     >
-                      Submit Paper
+                       Payment Status
                     </th>
+                    
                  
                   </tr>
                 </thead>

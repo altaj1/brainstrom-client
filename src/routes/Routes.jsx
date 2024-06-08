@@ -15,6 +15,7 @@ import MyParticipatedContest from '../pages/User/MyParticipatedContest'
 import ContestSubmittedPages from '../pages/Creator/ContestSubmittedPages'
 import Profile from '../components/Profile/Profile'
 import DeclareContest from '../pages/Creator/DeclareContest'
+import MyWinningContest from '../pages/User/MyWinningContest'
 
 
 
@@ -129,6 +130,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
           <DeclareContest></DeclareContest>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'MyWinningContest',
+        element: (
+          <PrivateRoute>
+         <MyWinningContest></MyWinningContest>
           </PrivateRoute>
         ),
       },

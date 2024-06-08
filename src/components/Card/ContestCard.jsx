@@ -35,7 +35,7 @@ const ContestCard = ({contest}) => {
                             <p>
 
                           about  {
-                            differenceInCalendarDays(new Date(to), new Date(from))
+                            differenceInCalendarDays(new Date(to), new Date())
                            } <span> days left</span>
                             </p>
                             <div className="flex items-center ">

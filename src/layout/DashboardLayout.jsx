@@ -5,7 +5,7 @@ import useAuth from '../hooks/useAuth'
 const DashboardLayout = () => {
   const {darkMode} = useAuth()
   return (
-    <div className={`${darkMode ? "bg-[#061f31]  h-full text-white" : ""} dark:bg-[#0F172A] `}>
+    <div className={`${darkMode ? "bg-[#061f31]  h-full text-white" : ""} dark:bg-[#0F172A] font-serif`}>
         <div className='relative min-h-screen md:flex'>
       {/* Sidebar */}
       <Sidebar />

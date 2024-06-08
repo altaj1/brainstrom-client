@@ -10,7 +10,7 @@ const DeclareContest = () => {
   const { id } = useParams();
   const { user } = useAuth();
   const axionSecure = useAxiosSecure();
-  const { data: declareContests = {}, isLoading } = useQuery({
+  const { data: declareContests = {}, isLoading, refetch } = useQuery({
     queryKey: ["DeclareContest"],
     queryFn: async () => {
       const { data } = await axionSecure.get(
@@ -45,7 +45,7 @@ const DeclareContest = () => {
     }
   }
   const title = mainData[0];
-  console.log(title);
+//   console.log(title);
   // console.log(mainData, 'this is main data')
 
   return (
@@ -60,7 +60,7 @@ const DeclareContest = () => {
       <div className="divide-y-4 divide-slate-400/25 "></div>
       <div className="grid lg:grid-cols-2">
         {mainData.map((contest, idx) => (
-          <DeclareContestCard key={idx} contest={contest}></DeclareContestCard>
+          <DeclareContestCard key={idx} contest={contest} refetch={refetch}></DeclareContestCard>
         ))}
       </div>
     </div>
