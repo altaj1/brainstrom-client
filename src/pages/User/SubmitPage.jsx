@@ -24,7 +24,7 @@ const SubmitPage = () => {
           }
         const {data} = await axiosSecure.put(`/SubmitPage?id=${id}&email=${user.email}`, submetData);
         console.log(data.modifiedCount)
-        if (data.modifiedCount) {
+        if (data.modifiedCount || data.insertedId) {
         console.log("submit Successful")
         Swal.fire({
             position: "top-end",
