@@ -13,6 +13,8 @@ import ContestDetails from '../components/Details/ContestDetails'
 import SubmitPage from '../pages/User/SubmitPage'
 import MyParticipatedContest from '../pages/User/MyParticipatedContest'
 import ContestSubmittedPages from '../pages/Creator/ContestSubmittedPages'
+import Profile from '../components/Profile/Profile'
+import DeclareContest from '../pages/Creator/DeclareContest'
 
 
 
@@ -111,6 +113,22 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
           <ContestSubmittedPages></ContestSubmittedPages>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'profile',
+        element: (
+          <PrivateRoute>
+         <Profile></Profile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: 'ContestSubmitted/DeclareContest/:id',
+        element: (
+          <PrivateRoute>
+          <DeclareContest></DeclareContest>
           </PrivateRoute>
         ),
       },

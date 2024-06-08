@@ -22,7 +22,7 @@ const Home = () => {
         setSearch(categorie)
     }
     const {data : contests = [], isLoading} = useQuery({
-        queryKey:['contest', searchText, search],
+        queryKey:['contest',  search],
         queryFn: async () => {
             const {data} = await axiosCommon.get(`/contest?search=${search}`)
             // console.log(data)

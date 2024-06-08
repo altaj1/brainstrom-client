@@ -6,6 +6,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 import { ImSpinner9 } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const CheckoutForm = ({registrationInfo}) => {
@@ -32,7 +33,6 @@ const CheckoutForm = ({registrationInfo}) => {
         console.log('clientSecret from server--->', data)
         setClientSecret(data.clientSecret)
       }
-
 
 
     const handelSubmit = async (event)=>{
@@ -102,9 +102,16 @@ const CheckoutForm = ({registrationInfo}) => {
         //   console.log(paymentInfo, "delete _id")
 
         try{
-            const { data } = await axiosSecure.post('/register', paymentInfo)
+            const { data } = await axiosSecure.put(`/register?email=${user.email}&&contestId=${paymentInfo.contestId}`, paymentInfo)
         console.log(data)
         if (data.acknowledged) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Registration Successful",
+            showConfirmButton: false,
+            timer: 1500
+          });
             navigate(`/submitPage/${registrationInfo._id}`)
         }
         }catch (err) {

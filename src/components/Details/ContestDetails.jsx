@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import useAxiosCommon from "../../hooks/useAxosCommon";
+
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../Shared/LoadingSpinner";
 
@@ -7,6 +7,7 @@ import Heading from "../Shared/Heading";
 import Container from "../Shared/Container";
 import { useState } from "react";
 import RegistrationModal from "../Modal/RegistrationModal";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
 
@@ -23,7 +24,7 @@ const ContestDetails = () => {
       console.log("kire vai hocche na keno")
     }
     const { id } = useParams()
-    const axiosCommon = useAxiosCommon()
+    const axiosSecure = useAxiosSecure()
   
     const {
       data: contest= {},
@@ -32,7 +33,7 @@ const ContestDetails = () => {
     } = useQuery({
       queryKey: ['cntest', id],
       queryFn: async () => {
-        const { data } = await axiosCommon.get(`/detail/contest/${id}`)
+        const { data } = await axiosSecure.get(`/detail/contest/${id}`)
         return data
       },
     })

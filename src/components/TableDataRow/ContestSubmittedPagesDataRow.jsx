@@ -7,7 +7,7 @@ const ContestSubmittedPagesDataRow = ({ participantContest }) => {
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
         <Link
           className="text-gray-900 whitespace-no-wrap"
-          to={`/submitPage/${participantContest.contestId}`}
+          to={`DeclareContest/${participantContest.contestId}`}
         >
           {participantContest.title}
         </Link>
@@ -23,7 +23,7 @@ const ContestSubmittedPagesDataRow = ({ participantContest }) => {
           {to.toLocaleString()}
         </td> */}
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-        about {differenceInCalendarDays(new Date(participantContest.to), new Date(participantContest.from))}{" "}
+        about {differenceInCalendarDays(new Date(participantContest.to), new Date())}{" "}
         <span> days left</span>
       </td>
     </tr>

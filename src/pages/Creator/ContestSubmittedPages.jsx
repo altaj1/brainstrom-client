@@ -1,3 +1,4 @@
+import LoadingSpinner from "../../components/Shared/LoadingSpinner";
 import ContestSubmittedPagesDataRow from "../../components/TableDataRow/ContestSubmittedPagesDataRow";
 import useParticipantContest from "../../hooks/useParticipantContest";
 
@@ -5,7 +6,10 @@ import useParticipantContest from "../../hooks/useParticipantContest";
 
 const ContestSubmittedPages = () => {
    const {participantContests, isLoading} = useParticipantContest()
-   
+   console.log(participantContests)
+   if (isLoading) {
+    return <LoadingSpinner></LoadingSpinner>
+   }
     return (
         <>
         <div className='container mx-auto px-4 sm:px-8'>
