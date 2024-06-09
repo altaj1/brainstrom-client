@@ -134,7 +134,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: 'MyWinningContest',
+        path: 'myWinningContest',
         element: (
           <PrivateRoute>
          <MyWinningContest></MyWinningContest>

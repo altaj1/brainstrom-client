@@ -73,6 +73,8 @@ const AuthProvider = ({ children }) => {
       email: user?.email,
       role: 'User',
       status: 'Verified',
+      photo:user?.photoURL
+
     }
     const { data } = await axios.put(
       `${import.meta.env.VITE_API_URL}/user`,

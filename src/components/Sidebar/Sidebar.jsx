@@ -88,11 +88,7 @@ const Sidebar = () => {
           <hr />
 
           {/* Profile Menu */}
-          <MenuItem
-            label='Profile'
-            address='profile'
-            icon={FcSettings}
-          />
+        
           <MenuItem
             label='Home'
             address='/'
