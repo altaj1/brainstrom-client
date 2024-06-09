@@ -51,10 +51,10 @@ const DeclareContest = () => {
   return (
     <div className="w-[70%] mx-auto">
       <div className="lg:flex lg:space-x-48  items-center p-8">
-        <h3 className="text-3xl font-semibold ">{title.title}</h3>
+        <h3 className="text-3xl font-semibold ">{title?.title}</h3>
 
         <p className="text-rose-500 text-xl">
-          Submission Details: {new Date(title.to).toDateString()}
+          Submission Details: {new Date(title?.to).toDateString()}
         </p>
       </div>
       <div className="divide-y-4 divide-slate-400/25 "></div>

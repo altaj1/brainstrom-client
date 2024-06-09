@@ -14,7 +14,10 @@ prizeMoney,
 date,
 contestId,
 price,
-paymentIntent_status
+paymentIntent_status,
+submitStatus,
+winerData
+
 
 } = participated;
 // console.log(participated)
@@ -24,6 +27,7 @@ const handelSubmitPaper = async (e)=>{
     console.log(contestPaper)
     console.log(contestId)
 }
+   const lastDate = differenceInCalendarDays(new Date(to), new Date())
     return ( 
         <tr>
         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -37,10 +41,13 @@ const handelSubmitPaper = async (e)=>{
           {prizeMoney}
         </td>
         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-          { differenceInCalendarDays(new Date(to), new Date())} days left
+          { lastDate} days left
         </td>
         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-          <Link to={`/submitPage/${contestId}`}> Submit Paper</Link>
+         {
+          winerData? winerData.winerEmal == user.email?"You Have Won This Contest":"you have loss this contest"
+          : lastDate? <Link to={`/submitPage/${contestId}`}>{submitStatus? "You Need To Resubmit Agin": "You have not submitted yet"}</Link> : "Date Over"
+         }
       
       
         </td>

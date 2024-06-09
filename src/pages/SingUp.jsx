@@ -23,6 +23,13 @@ const SignUp = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "SignUp Successfull",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
                 updateUserProfile(data.name, image_url)
                     .then(() => {
                         navigate('/');

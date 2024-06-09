@@ -30,7 +30,7 @@ const CheckoutForm = ({registrationInfo}) => {
       //   get clientSecret
       const getClientSecret = async price => {
         const { data } = await axiosSecure.post(`/create-payment-intent`, price)
-        console.log('clientSecret from server--->', data)
+        // console.log('clientSecret from server--->', data)
         setClientSecret(data.clientSecret)
       }
 
@@ -38,7 +38,7 @@ const CheckoutForm = ({registrationInfo}) => {
     const handelSubmit = async (event)=>{
         event.preventDefault();
         const tasks = event.target.tasks
-        console.log(tasks)
+        // console.log(tasks)
 
         if (!stripe || !elements) {
             // Stripe.js has not loaded yet. Make sure to disable
@@ -82,7 +82,7 @@ const CheckoutForm = ({registrationInfo}) => {
     })
 
     if (confirmError) {
-        console.log(confirmError)
+        // console.log(confirmError)
         setCardError(confirmError.message)
         setProcessing(false)
         return
@@ -97,13 +97,25 @@ const CheckoutForm = ({registrationInfo}) => {
             date: new Date(),
             paymentIntent_status: 'succeeded'
           }
+          const participationCount = (registrationInfo?.participationCount || 0) + 1
         //   console.log(paymentInfo, "this is payment info")
           delete paymentInfo._id
         //   console.log(paymentInfo, "delete _id")
-
+        // console.log( participationCount, 'this is participation count')
         try{
-            const { data } = await axiosSecure.put(`/register?email=${user.email}&&contestId=${paymentInfo.contestId}`, paymentInfo)
+        
+          
+            const { data } = await axiosSecure.put(`/register?email=${user.email}&&contestId=${registrationInfo._id}`, paymentInfo)
         console.log(data)
+        if (data.status) {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Are allready rigisterd",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
         if (data.acknowledged) {
           Swal.fire({
             position: "top-end",
@@ -112,7 +124,9 @@ const CheckoutForm = ({registrationInfo}) => {
             showConfirmButton: false,
             timer: 1500
           });
-            navigate(`/submitPage/${registrationInfo._id}`)
+          // /update participation
+          const { data: countData } = await axiosSecure.put(`/update-participation/${registrationInfo._id}`,{participationCount})
+            navigate(`/submitPage/${paymentInfo.contestId}`)
         }
         }catch (err) {
         console.log(err)

@@ -4,15 +4,13 @@ import useAuth from '../../hooks/useAuth'
 import { Link } from 'react-router-dom'
 import { AiOutlineBars } from 'react-icons/ai'
 import MenuItem from './Menu/Menuitem'
-
-import { BsGraphUp } from 'react-icons/bs'
-import { FcHome, FcSettings } from 'react-icons/fc'
+import { FcHome, } from 'react-icons/fc'
 import { GrLogout } from 'react-icons/gr'
 import UserMenu from './Menu/UserMenu'
 import AdminMenu from './Menu/AdminMenu'
 import CreatorMenu from './Menu/CreatorMenu'
 import useRole from '../../hooks/useRole'
-
+import { MdOutlineLeaderboard } from "react-icons/md";
 const Sidebar = () => {
   const { logOut } = useAuth()
   const [isActive, setActive] = useState(false)
@@ -25,13 +23,26 @@ const Sidebar = () => {
     setActive(!isActive)
   }
 
-  const toggleHandler = event => {
-    setToggle(event.target.checked)
-  }
+
   return (
     <>
       {/* Small Screen Navbar */}
       <div className='bg-gray-100 text-gray-800 flex justify-between md:hidden'>
+        <div>
+          <div className='block cursor-pointer p-4 font-bold'>
+            <Link to='/'>
+              <img
+                className='h-14 w-14'
+
+                src='https://i.ibb.co/FgwgMQV/logo-removebg-preview.png'
+                alt='logo'
+                width='100'
+                height='100'
+              />
+            </Link>
+          </div>
+        </div>
+
         <button
           onClick={handleToggle}
           className='mobile-menu-button p-4 focus:outline-none focus:bg-gray-200'
@@ -42,7 +53,7 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden  w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
+        className={`bg-gray-100 mt-10 z-10 md:fixed flex flex-col justify-between overflow-x-hidden  w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
           isActive && '-translate-x-full'
         }  md:translate-x-0  transition duration-200 ease-in-out`}
       >
@@ -68,11 +79,10 @@ const Sidebar = () => {
 
             {/*  Menu Items */}
             <nav>
-              {/* Statistics */}
-              <MenuItem
-                label='Statistics'
+            <MenuItem
+                label='Leader Board'
                 address='/dashboard'
-                icon={BsGraphUp}
+                icon={ MdOutlineLeaderboard}
               />
               {role === 'User' && <UserMenu/>}
 

@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 const SubmitPage = () => {
     const {user} = useAuth();
     const {id} = useParams()
+    const navigate = useNavigate()
     const axiosSecure = useAxiosSecure()
     const handelSubmit = async(e)=>{
         e.preventDefault();
@@ -33,6 +34,7 @@ const SubmitPage = () => {
             showConfirmButton: false,
             timer: 1500
           });
+          navigate('/dashboard/MyParticipatedContest')
         }
     }
     console.log(id)

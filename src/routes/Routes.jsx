@@ -16,6 +16,9 @@ import ContestSubmittedPages from '../pages/Creator/ContestSubmittedPages'
 import Profile from '../components/Profile/Profile'
 import DeclareContest from '../pages/Creator/DeclareContest'
 import MyWinningContest from '../pages/User/MyWinningContest'
+import ErrorPage from '../pages/ErrorPage'
+import AllContests from '../components/Home/AllContests/AllContests'
+import LeaderBoard from '../pages/LeaderBoard'
 
 
 
@@ -27,7 +30,7 @@ export const router = createBrowserRouter([
   {
     path: '/',
     element: <Main />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
@@ -49,6 +52,12 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: '/all-Contest',
+        element: (
+         <AllContests></AllContests>
+        ),
+      },
     ],
   },
   { path: '/login', element: <Login /> },
@@ -65,7 +74,7 @@ export const router = createBrowserRouter([
         index: true,
         element: (
           <PrivateRoute>
-            {/* <Statistics /> */}
+            <LeaderBoard></LeaderBoard>
           </PrivateRoute>
         ),
       },

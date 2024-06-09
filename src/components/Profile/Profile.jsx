@@ -62,8 +62,8 @@ const Profile = () => {
 
 
   const { winningResult, participateResult } = statData;
-  const winPercentage = (winningResult.length / participateResult.length) * 100;
-//   console.log(winPercentage);
+  const winPercentage = (winningResult.length   / participateResult.length) * 100;
+  console.log(statData);
   const data = [
     ["Task", "Percentage"],
     ["Win Percentage", winPercentage],
@@ -82,13 +82,15 @@ const Profile = () => {
         <h1 className="text-4xl">Hey, {user?.displayName}</h1> <br />
           <h2>Your Progess</h2>
         </div>
-        <Chart
-          chartType="PieChart"
-          width="100%"
-          height="400px"
-          data={data}
-          options={options}
-        />
+       {
+        winPercentage?  <Chart
+        chartType="PieChart"
+        width="100%"
+        height="400px"
+        data={data}
+        options={options}
+      />: <p className="text-3xl text-center mt-24">you haven't had a contest partici </p>
+       }
       </div>
       <div>
       <div className="text-3xl font-semibold text-center mt-20">

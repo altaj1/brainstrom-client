@@ -50,7 +50,7 @@ const UpdateProfileForm = ({ register, handleSubmit, onSubmit }) => {
 
       <button
         type="submit"
-        className="bg-green-500 text-white px-4 py-2 rounded-md shadow-sm"
+        className=" p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#FF6F61]"
       >
         Update
       </button>

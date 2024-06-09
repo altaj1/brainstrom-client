@@ -1,9 +1,13 @@
 import { useMutation } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { differenceInCalendarDays } from "date-fns";
 
 const DeclareContestCard = ({ contest, refetch }) => {
-  const { contest_paper, date, participate, price, prizeMoney, contestId } = contest;
+  const { contest_paper, date, participate, price, prizeMoney, contestId, to } = contest;
+  const lastDate = differenceInCalendarDays(new Date(to), new Date())
+   
+  
 //   console.log(contest);
 const axiosSecure = useAxiosSecure();
 // update contest coloction
@@ -42,13 +46,13 @@ const { mutateAsync: updateRegister } = useMutation({
       
     },
     onSuccess: data => {
-        // Swal.fire({
-        //     position: "top-end",
-        //     icon: "success",
-        //     title: "Decler Contest Winer",
-        //     showConfirmButton: false,
-        //     timer: 1500
-        //   });
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Decler Of The  Contest Winer",
+            showConfirmButton: false,
+            timer: 1500
+          });
       console.log(data)
       refetch()
       
@@ -71,7 +75,7 @@ updateRegister(winerData)
           <p className="text-sm font-semibold">{participate?.name}</p>
           <span>{participate?.email}</span>
           <span className="text-xs dark:text-gray-600 ">
-            {new Date(date).toDateString()}
+            {new Date(to).toDateString()}
           </span>
         </div>
       </div>
@@ -85,13 +89,18 @@ updateRegister(winerData)
       
       <div className="text-center">
        {
+
+        lastDate?<button className=" p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#FF6F61]">Decler {lastDate} Days Left</button>
+        :
         contest?.winerData ? <button className=" p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#FF6F61]">Already Declared Of Ther Winner</button>
         :   <button onClick={()=>{
             
             const winner = {
                 winerName: participate?.name,
                 winerEmal: participate?.email,
-                winerCotestId:contestId
+                winerCotestId:contestId,
+                winDate: new Date(),
+                winerPhoto:participate?.image               
             }
             handelWiner(winner)
         }} className=" p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#FF6F61]">

@@ -5,6 +5,7 @@ import toast from 'react-hot-toast'
 import { TbFidgetSpinner } from 'react-icons/tb'
 import { useState } from 'react'
 import useAuth from '../hooks/useAuth'
+import Swal from 'sweetalert2'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -24,6 +25,13 @@ const Login = () => {
       setLoading(true)
       // 1. sign in user
       await signIn(email, password)
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "SignIn Successfull",
+        showConfirmButton: false,
+        timer: 1500
+      });
       navigate(from)
       toast.success('Signup Successful')
     } catch (err) {
@@ -33,26 +41,32 @@ const Login = () => {
     }
   }
 
-  const handleResetPassword = async () => {
-    if (!email) return toast.error('Please write your email first!')
-    try {
-      await resetPassword(email)
-      toast.success('Request Success! Check your email for further process...')
-      setLoading(false)
-    } catch (err) {
-      console.log(err)
-      toast.error(err.message)
-      setLoading(false)
-    }
-    console.log(email)
-  }
+  // const handleResetPassword = async () => {
+  //   if (!email) return toast.error('Please write your email first!')
+  //   try {
+  //     await resetPassword(email)
+  //     toast.success('Request Success! Check your email for further process...')
+  //     setLoading(false)
+  //   } catch (err) {
+  //     console.log(err)
+  //     toast.error(err.message)
+  //     setLoading(false)
+  //   }
+  //   console.log(email)
+  // }
   // handle google signin
   const handleGoogleSignIn = async () => {
     try {
       await signInWithGoogle()
-
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "SignIn Successfull",
+        showConfirmButton: false,
+        timer: 1500
+      });
       navigate(from)
-      toast.success('Signup Successful')
+      
     } catch (err) {
       console.log(err)
       toast.error(err.message)
@@ -121,12 +135,12 @@ const Login = () => {
           </div>
         </form>
         <div className='space-y-1'>
-          <button
+          {/* <button
             onClick={handleResetPassword}
             className='text-xs hover:underline hover:text-rose-500 text-gray-400'
           >
             Forgot password?
-          </button>
+          </button> */}
         </div>
         <div className='flex items-center pt-4 space-x-1'>
           <div className='flex-1 h-px sm:w-16 dark:bg-gray-700'></div>

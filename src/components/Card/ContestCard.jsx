@@ -4,8 +4,8 @@ import { format } from "date-fns";
 import { Link } from "react-router-dom";
 
 
-const ContestCard = ({contest}) => {
-    console.log(contest)
+const ContestCard = ({contest, refetch}) => {
+    // console.log(contest)
     const {
         title,
         image,
@@ -23,7 +23,7 @@ const ContestCard = ({contest}) => {
             <div className="flex items-center flex-col justify-center">
                <img className="rounded-lg lg:h-[344px ] lg:w-[258px]" src={image} alt="" />
             </div>
-            <div className="mt-3 space-y-5 ">
+            <div className="mt-3 space-y-5 pl-6">
                 <h4 className="text-2xl font-bold hover:underline">{title}</h4>
                 <p className="mt-2"> {description.length > 50
                         ? description.split(".")[0].slice(0, 30 ) +
@@ -48,7 +48,7 @@ const ContestCard = ({contest}) => {
             <div className="flex items-center flex-col justify-between mt-4">
                 <p>Price: ${price}</p>
                 <p>Prize Money: ${prizeMoney}</p>
-                <p>Participants: {contest?.participants || '0'}</p>
+                <p>Participants: {contest?.participationCount || '0'}</p>
                 <div className="mt-5 lg:0">
                     <Link to={`/contestDetails/${_id}`} className="bg-[#FF6F61] p-3 rounded-lg font-medium text-white hover:shadow-lg">View Details</Link>
                 </div>

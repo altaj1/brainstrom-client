@@ -18,94 +18,16 @@ const NavBar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-blue-400  font-bold lg:mt-0 mt-4"
+              ? "text-indigo-900  font-bold lg:mt-0 mt-4"
               : "font-bold mt-4 lg:mt-0"
           }
         >
           Home
         </NavLink>
-        <NavLink
-          to="/services"
-          className={({ isActive }) =>
-            isActive
-              ? "text-blue-400  font-bold lg:mt-0 mt-4"
-              : "font-bold mt-4 lg:mt-0"
-          }
-        >
-          Services
-        </NavLink>
-
-        {/* {
-          user ?  <div className="dropdown w-full " >
-          <NavLink to='#'
-            tabIndex={0}
-            role="button"
-            className={({ isActive }) =>
-              !isActive
-                ? "text-blue-500 font-bold lg:mt-0 mt-4"
-                : "font-bold mt-4 lg:mt-0"
-            }
-          >
-          <div className="flex items-center justify-center ">
-          <span>Dashboard </span> <MdArrowDropDown  className="text-xl"/>
-          </div>
-          </NavLink>
-          <ul tabIndex={0} className="dropdown-content z-[1] menu  w-48 space-y-5 ">
-            <NavLink
-              to="/addservice"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-blue-500 font-bold lg:mt-0 mt-4"
-                  : "font-bold mt-4 lg:mt-0 text-pink-400"
-              }
-            >
-               Add Service
-            </NavLink>
-            <NavLink
-              to="/manageservice"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-blue-500 font-bold lg:mt-0 mt-4"
-                  : "font-bold mt-4 lg:mt-0 text-pink-400"
-              }
-            >
-              Manage Service
-            </NavLink>
-            <NavLink
-              to="/booked-services"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-blue-500 font-bold lg:mt-0 mt-4"
-                  : "font-bold mt-4 lg:mt-0 text-pink-400"
-              }
-            >
-              Booked-Services
-            </NavLink>
-            <NavLink
-              to="/service-to-do"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-blue-500 font-bold lg:mt-0 mt-4"
-                  : "font-bold mt-4 lg:mt-0 text-pink-400"
-              }
-            >
-              Service-To-Do
-            </NavLink>
-          </ul>
-        </div>
-        : ""
-        } */}
-       
-      
       </div>
     </div>
   );
-//   console.log(user);
-//   useEffect(() => {
-//     if (user) {
-//       setUser(user);
-//     }
-//   }, [user]);
+
   return (
     <div className={`navbar shadow-md top-0  z-50 lg:pl-72 lg:pr-72  fixed ${darkMode ? "bg-[#061f31] text-rose-200 " : "bg-slate-100"} dark:bg-[#0F172A] `}>
       <div className="navbar-start lg:pl-14">
@@ -120,6 +42,7 @@ const NavBar = () => {
               src="https://i.ibb.co/9tTHdQG/nav-Sm-img-removebg-preview.png"
               alt=""
             />
+        
           </div>
           <ul
             tabIndex={0}
@@ -137,16 +60,17 @@ const NavBar = () => {
           /></Link>
           <h1 className="text-2xl font-bold lg:block hidden inline-block  text-transparent bg-clip-text bg-gradient-to-r from-indigo-900 from-10% via-sky-500 via-30% to-emerald-500 to-90% ...">BrainStrom</h1>
         </div>
-      </div>
-      <div className="navbar-center">
-        <div className=" md:block   hidden lg:flex">
+        <div className=" md:block   hidden lg:flex ml-5">
           <ul className="menu menu-horizontal   px-1">{listItems}</ul>
         </div>
       </div>
+     
 
       <div className="navbar-end space-x-3">
         <div className="dropdown dropdown-hover drop-shadow-none">
+          
           <div tabIndex={0} role="button" className=" m-1">
+            
             <Link>
               {user ? (
                 <img
@@ -187,7 +111,7 @@ const NavBar = () => {
         {user ? (
           ""
         ) : (
-          <Link className="btn bg-blue-300" to="/login">
+          <Link className=" p-3 mt-5 text-center font-medium text-white transition duration-200 rounded shadow-md bg-[#FF6F61]" to="/login">
             {" "}
             Login
           </Link>
