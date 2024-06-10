@@ -19,6 +19,8 @@ import MyWinningContest from '../pages/User/MyWinningContest'
 import ErrorPage from '../pages/ErrorPage'
 import AllContests from '../components/Home/AllContests/AllContests'
 import LeaderBoard from '../pages/LeaderBoard'
+import CreatorRoutes from './CreatorRoutes'
+import AdminRoute from './AdminRoute'
 
 
 
@@ -82,7 +84,7 @@ export const router = createBrowserRouter([
         path: 'Add-Contest',
         element: (
           <PrivateRoute>
-            <AddContest></AddContest>
+            <CreatorRoutes><AddContest></AddContest></CreatorRoutes>
           </PrivateRoute>
         ),
       },
@@ -90,7 +92,7 @@ export const router = createBrowserRouter([
         path: 'MyCreatedContest',
         element: (
           <PrivateRoute>
-            <MyCreatedContest></MyCreatedContest>
+            <CreatorRoutes><MyCreatedContest></MyCreatedContest></CreatorRoutes>
           </PrivateRoute>
         ),
       },
@@ -98,7 +100,7 @@ export const router = createBrowserRouter([
         path: 'manage-users',
         element: (
           <PrivateRoute>
-           <ManageUsers></ManageUsers>
+           <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
           </PrivateRoute>
         ),
       },
@@ -106,7 +108,8 @@ export const router = createBrowserRouter([
         path: 'ManageContest',
         element: (
           <PrivateRoute>
-            <ManageContest></ManageContest>
+            <AdminRoute>
+            <ManageContest></ManageContest></AdminRoute>
           </PrivateRoute>
         ),
       },
@@ -122,7 +125,7 @@ export const router = createBrowserRouter([
         path: 'ContestSubmitted',
         element: (
           <PrivateRoute>
-          <ContestSubmittedPages></ContestSubmittedPages>
+          <CreatorRoutes><ContestSubmittedPages></ContestSubmittedPages></CreatorRoutes>
           </PrivateRoute>
         ),
       },
@@ -138,7 +141,7 @@ export const router = createBrowserRouter([
         path: 'ContestSubmitted/DeclareContest/:id',
         element: (
           <PrivateRoute>
-          <DeclareContest></DeclareContest>
+          <CreatorRoutes><DeclareContest></DeclareContest></CreatorRoutes>
           </PrivateRoute>
         ),
       },

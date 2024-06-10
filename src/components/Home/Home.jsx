@@ -10,6 +10,8 @@ import Heading from "../Shared/Heading";
 
 import { Link } from "react-router-dom";
 import BestContestCreator from "./BestContestCreator";
+import Faq from "./Faq/Faq";
+import AboutUs from "./AboutUs";
 
 const Home = () => {
     const [search, setSearch] = useState('')
@@ -70,9 +72,17 @@ const Home = () => {
             <div>
                 <ContestAdvertisement></ContestAdvertisement>
             </div>
-            {/* <div>
-                <BestContestCreator contests={contests}></BestContestCreator>
-            </div> */}
+            <div>
+                <BestContestCreator ></BestContestCreator>
+            </div>
+            <div className="w-[65%] mx-auto pb-16 shadow-xl p-12">
+                <Heading title={"General Questions"} center={true} subtitle={'Frequently asked questions about Brainstrom hub and general information.'}></Heading>
+                <Faq></Faq>
+            </div>
+            <div className="w-[65%] mx-auto pb-16 shadow-xl p-12">
+                <Heading title={"Welcome to Brainstorm!"} center={true} subtitle={` At Contest Hub, we're passionate about celebrating creativity, talent, and innovation. We believe that everyone deserves a platform to showcase their skills and passions, and that's why we've created a vibrant hub where individuals from all walks of life can come together to participate in exciting contests, challenge themselves, and win amazing prizes.`}></Heading>
+                <AboutUs></AboutUs>
+            </div>
         </div>
     );
 };

@@ -1,49 +1,88 @@
-import { useEffect, useRef } from "react";
+import LoadingSpinner from "../Shared/LoadingSpinner";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosCommon from "../../hooks/useAxosCommon";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-import Carousel from 'react-elastic-carousel';
-const BestContestCreator = ({ contests }) => {
-    const carouselRef = useRef(null);
-    const calculateParticipationCount = (creatorEmail) => {
-        return contests.filter(contest => contest.contentCreator.email === creatorEmail).length;
-      };
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import { FcBusinesswoman } from "react-icons/fc";
+import { useRef } from "react";
+import Heading from "../Shared/Heading";
 
-      const sortCreatorsByParticipation = () => {
-        
-        return Object.values(creators).sort((a, b) => {
-          const participationCountA = calculateParticipationCount(a.id);
-          const participationCountB = calculateParticipationCount(b.id);
-          return participationCountB - participationCountA; 
-        });
-      };
-      const topCreators = sortCreatorsByParticipation().slice(0, 3);
-      console.log(topCreators)
-    useEffect(() => {
-        const interval = setInterval(() => {
-          if (carouselRef.current) {
-            carouselRef.current.goTo( (carouselRef.current.getCurrentIndex() + 1) % topCreators.length );
+const BestContestCreator = () => {
+  const progressCircle = useRef(null);
+  const progressContent = useRef(null);
+  const onAutoplayTimeLeft = (s, time, progress) => {};
+  const axiosCommon = useAxiosCommon();
+  const {
+    data: creators = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["creatros"],
+    queryFn: async () => {
+      const { data } = await axiosCommon.get(`/best-creators`);
+      // console.log(data)
+      return data;
+    },
+  });
+  if (isLoading) {
+    return <LoadingSpinner></LoadingSpinner>;
+  }
+  console.log(creators);
+
+  return (
+    <div>
+      <div>
+        <Heading
+          title={"Here Is Our Top Contributor"}
+          center={true}
+          subtitle={
+            "This section highlights the individuals who have made the most significant contributions in their respective contests."
           }
-        },3000);
-    
-        return () => clearInterval(interval); // Clear the interval on component unmount
-      }, []);
-    return (
-        <div className="top-creators-section">
-      <h2 className="section-title">Top Contest Creators</h2>
-      {/* <Carousel itemsToShow={3} pagination={false}>
-        {topCreators.map(creator => (
-          <div key={creator.id} className="creator-tile">
-            <img src={creator.image} alt={creator.name} className="creator-image" />
-            <div className="creator-info">
-              <h3 className="creator-name">{creator.name}</h3>
-              <p className="contest-name">{creator.latestContestName}</p>
-              <p className="contest-description">{creator.latestContestDescription}</p>
-              <p className="participation-count">Participation Count: {calculateParticipationCount(creator.id)}</p>
+        ></Heading>
+      </div>
+      <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        // navigation={true}
+        modules={[Autoplay, Pagination]}
+        onAutoplayTimeLeft={onAutoplayTimeLeft}
+        className="mySwiper"
+      >
+        {creators.map((cr, index) => (
+          <SwiperSlide key={index}>
+            <div className="w-[65%] mx-auto space-y-7  shadow-lg rounded-lg lg:p-12 md:p-12 text-start mb-10">
+              <div>
+                <img
+                  className="h-20 w-20 rounded-full"
+                  src={cr.image}
+                  alt="img"
+                />
+                <p className="text-xl font-semibold">{cr.name}</p>
+              </div>
+              <hr />
+              <p className="text-lg font-semibold">{cr.contestName}</p>
+              <p className="">{cr.description}</p>
+              <h1 className="text-xl flex gap-2 items-center font-normal">
+               
+                Creators  are very good contest create
+              </h1>
             </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </Carousel> */}
+      </Swiper>
     </div>
-    );
+  );
 };
 
 export default BestContestCreator;

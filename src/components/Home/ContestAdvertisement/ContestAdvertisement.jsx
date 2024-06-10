@@ -25,7 +25,7 @@ const {winerData, category
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold">Join Our Exciting Contest!</h1>
-            <p className="mt-4 text-xl">Showcase your talents and win amazing prizes!</p>
+            <p className="mt-4 text-lg">Showcase your talents and win amazing prizes!</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Dynamic Contest Winner Info */}

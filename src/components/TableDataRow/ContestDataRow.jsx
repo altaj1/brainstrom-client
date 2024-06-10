@@ -3,6 +3,7 @@ import { useState } from "react";
 import UpdateModal from "../Modal/UpdateModal";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 
 const ContestDataRow = ({ contest, refetch }) => {
@@ -96,8 +97,9 @@ const ContestDataRow = ({ contest, refetch }) => {
         
       </td>
       <td className='px-5 py-5 border-b border-gray-200  text-sm'>
-      <button
-          onClick={() => setIsEditModalOpen(true)}
+      <Link to='/dashboard/ContestSubmitted'
+  
+       disabled={contest?.status == "pending"}
           className='relative cursor-pointer inline-block px-3 py-1 font-semibold  leading-tight'
         >
           <span
@@ -105,7 +107,7 @@ const ContestDataRow = ({ contest, refetch }) => {
             className={`${contest?.status == "pending" ? 'bg-slate-300 text-slate-500' : 'bg-[#FF6F61]' } absolute inset-0     rounded-full`}
           ></span>
           <span className='relative'>Submission</span>
-        </button>
+        </Link>
         {/* Delete modal */}
         
         

@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom'
 import NavBar from '../components/Shared/NavBar/NavBar'
 import { useState } from 'react'
 import useAuth from '../hooks/useAuth'
+import Footer from '../components/Footer/Footer'
 const Main = () => {
     // const [darkMode, setDarkMode] = useState(false);
     const {darkMode, setDarkMode} = useAuth()
@@ -14,7 +15,7 @@ const Main = () => {
       <div className='pt-24 min-h-[calc(100vh-68px)] font-serif'>
         <Outlet />
       </div>
-      {/* <Footer /> */}
+      <Footer></Footer>
     </div>
   )
 }

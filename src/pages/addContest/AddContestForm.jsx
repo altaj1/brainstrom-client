@@ -24,9 +24,9 @@ const categories = ["Software Development", "Artificial Intelligence and Machine
     return (
         <div className='w-full min-h-[calc(100vh-40px)] flex flex-col justify-center items-center  rounded-xl '>
 
-          <Heading subtitle ='asjdfkahs' title='Add Contest Form'></Heading>
+          <Heading center={true} subtitle =' Adding a "Contest Form" under a specific subheading can be a great way to engage your audience and gather valuable information.' title='Add Contest Form'></Heading>
         <form onSubmit={handleSubmit}>
-          <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
+          <div className='grid grid-cols-1 lg:grid-cols-2 mt-10 gap-10'>
             <div className='space-y-6'>
 
             <div className='space-y-1 text-sm'>
