@@ -23,7 +23,7 @@ const Profile = () => {
     },
   });
 
-//   console.log(user);
+  console.log(statData,"this is stat data");
   const { mutateAsync } = useMutation({
     mutationFn: async updateData => {
       const { data } = await axiosSecure.put(
@@ -62,8 +62,8 @@ const Profile = () => {
 
 
   const { winningResult, participateResult } = statData;
-  const winPercentage = (winningResult.length   / participateResult.length) * 100;
-  console.log(statData);
+  const winPercentage = ((winningResult.length/2)   / participateResult.length) * 100;
+  console.log(winPercentage);
   const data = [
     ["Task", "Percentage"],
     ["Win Percentage", winPercentage],

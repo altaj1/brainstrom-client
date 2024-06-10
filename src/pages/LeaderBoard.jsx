@@ -43,13 +43,13 @@ const LeaderBoard = () => {
         <h2 className="text-2xl font-bold mb-2">Top Winner</h2>
         <div className="flex items-center space-x-4">
           <img
-            src={topWinner.winerPhoto}
-            alt={topWinner.winerName}
+            src={topWinner?.winerPhoto}
+            alt={topWinner?.winerName}
             className="w-10 h-10 rounded-full"
           />
           <div>
-            <p className="font-medium">{topWinner.winerName}</p>
-            <p className="text-sm text-gray-500">{topWinner.winerEmal}</p>
+            <p className="font-medium">{topWinner?.winerName}</p>
+            <p className="text-sm text-gray-500">{topWinner?.winerEmal}</p>
             <p className="text-xl font-bold">{maxWins} Wins</p>
           </div>
         </div>
