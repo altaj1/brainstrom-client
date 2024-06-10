@@ -50,7 +50,7 @@ const LeaderBoard = () => {
           <div>
             <p className="font-medium">{topWinner?.winerName}</p>
             <p className="text-sm text-gray-500">{topWinner?.winerEmal}</p>
-            <p className="text-xl font-bold">{maxWins} Wins</p>
+            <p className="text-xl font-bold">{maxWins/2} Wins</p>
           </div>
         </div>
       </div>
