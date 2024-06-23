@@ -55,7 +55,7 @@ const Profile = () => {
     mutateAsync(updateData)
     updateUserProfile(data.name, photo)
     // console.log(updateData, "this is react hook form data")
-          
+        
         
 };
   if (isLoading) return <LoadingSpinner />;
