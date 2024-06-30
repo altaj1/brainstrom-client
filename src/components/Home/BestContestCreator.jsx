@@ -12,9 +12,9 @@ import { useRef } from "react";
 import Heading from "../Shared/Heading";
 
 const BestContestCreator = () => {
-  const progressCircle = useRef(null);
-  const progressContent = useRef(null);
-  const onAutoplayTimeLeft = (s, time, progress) => {};
+  // const progressCircle = useRef(null);
+  // const progressContent = useRef(null);
+  const onAutoplayTimeLeft = (time, progress) => {};
   const axiosCommon = useAxiosCommon();
   const {
     data: creators = [],
@@ -49,11 +49,14 @@ const BestContestCreator = () => {
         centeredSlides={true}
         autoplay={{
           delay: 3000,
+          
           disableOnInteraction: false,
         }}
+        speed={1000} 
         pagination={{
           clickable: true,
         }}
+      
         // navigation={true}
         modules={[Autoplay, Pagination]}
         onAutoplayTimeLeft={onAutoplayTimeLeft}
