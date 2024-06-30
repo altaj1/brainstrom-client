@@ -27,32 +27,32 @@ export const categories = [
      
     },
     {
-      label: 'Cloud Computing',
+      label: 'Cloud',
       icon:TbCloudComputing,
       
     },
     {
-      label: 'Internet of Things (IoT)',
+      label: 'Internet',
       icon: MdSignalCellularConnectedNoInternet4Bar,
       
     },
     {
-      label: 'Data Science and Big Data',
+      label: 'Data Science',
       icon: Si365Datascience,
      
     },
     {
-      label: 'Blockchain Technology',
+      label: 'Blockchain',
       icon: SiHiveBlockchain,
       
     },
     {
-      label: '"IT Infrastructure and Networking"',
+      label: '"Networking"',
       icon: PiShareNetworkFill,
       
     },
     {
-      label: 'Tech-driven Business Solutions',
+      label: 'Tech-driven',
       icon: GrOnedrive,
       description: 'This property is in a spooky cave!',
     },
