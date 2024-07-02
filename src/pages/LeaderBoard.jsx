@@ -39,6 +39,7 @@ const LeaderBoard = () => {
   return (
     <div className="container mx-auto mt-10">
       <h1 className="text-3xl font-bold text-center mb-5">Leaderboard</h1>
+      <p className="text-center">Celebrating our top performers and their outstanding achievements. <br /> Get inspired by their success stories and join the journey to excellence!</p>
       <div className="p-4 bg-white shadow-md rounded-lg flex flex-col justify-center items-center mt-14">
         <h2 className="text-2xl font-bold mb-2">Top Winner</h2>
         <div className="flex items-center space-x-4">
