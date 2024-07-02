@@ -1,6 +1,10 @@
 # Brainstrom
 
 [Live Site URL](https://brainstrom-d72ae.web.app/)
+##  If you have locally run this prerequisite
+- MongoDB
+- Firebase account
+- This package with credentials must be added to this project
 
 ## Category: Contest Hub
 
