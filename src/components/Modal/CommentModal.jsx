@@ -1,20 +1,19 @@
+/* eslint-disable react/prop-types */
 import { useMutation } from '@tanstack/react-query';
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import Modal from 'react-modal';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 
-const CommentModal = ({isOpen, closeModal, isEditModalOpen,  contest}) => {
+const CommentModal = ({isOpen, closeModal,   contest}) => {
     const axiosSecure = useAxiosSecure()
     const { mutateAsync } = useMutation({
         mutationFn: async (commentData) => {
-           
           const { data } = await axiosSecure.put(
             `/contest/update/${contest._id}`,
             commentData
           )
-          return data
-          
+          return data   
         },
         onSuccess: data => {
             Swal.fire({
@@ -25,15 +24,12 @@ const CommentModal = ({isOpen, closeModal, isEditModalOpen,  contest}) => {
                 timer: 1500
               });
           console.log(data)
-          closeModal()
-          
+          closeModal()         
         },
-    });
-    
+    });   
     const handelComment =async (e)=>{
         e.preventDefault()
         const comment = e.target.comment.value
-        // console.log(comment)
         await mutateAsync({comment:comment})
           e.target.reset()
       }
@@ -56,11 +52,9 @@ const CommentModal = ({isOpen, closeModal, isEditModalOpen,  contest}) => {
         <div >
         <Modal
        isOpen={isOpen}
-       // onAfterOpen={isEditModalOpen}
        onRequestClose={closeModal}
        style={customStyles}
        >
-
 <div className='text-right   rounded-full'>
         <button className='btn mt-10  font-bold text-white rounded-full bg-[#FF6F61] text-2xl ' onClick={closeModal}><IoIosCloseCircleOutline /></button>
         </div>

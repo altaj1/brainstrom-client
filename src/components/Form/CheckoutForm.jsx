@@ -29,7 +29,7 @@ const CheckoutForm = ({registrationInfo}) => {
     
       //   get clientSecret
       const getClientSecret = async price => {
-        const { data } = await axiosSecure.post(`/create-payment-intent`, price)
+        const { data } = await axiosSecure.post(`/create-payment-intent`, price) 
         // console.log('clientSecret from server--->', data)
         setClientSecret(data.clientSecret)
       }
