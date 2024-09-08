@@ -4,23 +4,33 @@ import { MdDarkMode, MdOutlineDarkMode } from "react-icons/md";
 import { MdArrowDropDown } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const NavBar = () => {
   const { user, setUser, logOut, setDarkMode, darkMode } = useAuth();
-
+  console.log(user);
   const listItems = (
     <div className=" lg:flex  items-center gap-7">
-      <div className="flex  md:flex-row md:gap-6 flex-col lg:flex-row lg:gap-7 lg:space-y-0 space-y-4 ">
-        {/* <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive
-              ? "text-indigo-900  font-bold lg:mt-0 mt-4"
-              : "font-bold mt-4 lg:mt-0"
-          }
-        >
-          Home
-        </NavLink> */}
+      <div className="flex  md:flex-row md:gap-6 flex-col text-white lg:flex-row lg:gap-7 lg:space-y-0 space-y-4 ">
+        {user ? (
+          ""
+        ) : (
+          <Link
+            className=" p-3 mt-5 text-center font-medium  transition duration-200 rounded shadow-md bg-[#360951]"
+            to="/login"
+          >
+            {" "}
+            Login
+          </Link>
+        )}
+        <li className=" md:hidden lg:hidden block">
+          <button onClick={() => logOut()} className=" w-full ">
+            Logout
+          </button>
+        </li>
+        <li className=" md:hidden lg:hidden block">
+              <Link to="/dashboard">Dashbord</Link>
+            </li>
       </div>
     </div>
   );
@@ -38,15 +48,18 @@ const NavBar = () => {
             role="button"
             className="btn btn-ghost md:hidden lg:hidden"
           >
-            <img
+            <p className="font-semibold text-4xl">
+              <GiHamburgerMenu />
+            </p>
+            {/* <img
               className="lg:h-20 md:h-16 h-9 "
               src="https://i.ibb.co/9tTHdQG/nav-Sm-img-removebg-preview.png"
               alt=""
-            />
+            /> */}
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2    "
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2  bg-[#360951]  "
           >
             {listItems}
           </ul>
@@ -54,7 +67,7 @@ const NavBar = () => {
         <div className="flex items-center justify-center">
           <Link to="/">
             <img
-              className=" lg:h-16 md:h-16 h-11 pt-2 "
+              className=" lg:h-16 md:h-16 h-11 pt-2  hidden md:block lg:block"
               src="https://i.ibb.co/FgwgMQV/logo-removebg-preview.png"
               alt=""
             />
@@ -66,7 +79,7 @@ const NavBar = () => {
           </Link>
         </div>
         <div className=" md:block   hidden lg:flex ml-5">
-          <ul className="menu menu-horizontal   px-1">{listItems}</ul>
+          {/* <ul className="menu menu-horizontal   px-1">{listItems}</ul> */}
         </div>
       </div>
 
@@ -76,7 +89,7 @@ const NavBar = () => {
             <Link>
               {user ? (
                 <img
-                  className="h-14 rounded-full"
+                  className="h-10 rounded-full"
                   src={
                     user?.photoURL
                       ? user.photoURL
@@ -96,20 +109,20 @@ const NavBar = () => {
             <li>
               <a>{user?.displayName}</a>
             </li>
-            <li>
+            <li className=" md:block lg:block hidden">
               <Link to="/dashboard">Dashbord</Link>
             </li>
-            <li>
-              <a>
-                <button onClick={() => logOut()} className=" w-full ">
-                  Logout
-                </button>
-              </a>
+            <li className=" md:block lg:block hidden">
+              <button onClick={() => logOut()} className=" w-full ">
+                Logout
+              </button>
             </li>
           </ul>
         </div>
 
-        {user ? (
+        <div className="md:block lg:block hidden">
+          {listItems}
+          {/* {user ? (
           ""
         ) : (
           <Link
@@ -119,7 +132,8 @@ const NavBar = () => {
             {" "}
             Login
           </Link>
-        )}
+        )} */}
+        </div>
 
         {/* dark mood button */}
         <div className=" m-0 ">
