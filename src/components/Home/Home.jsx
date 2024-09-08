@@ -48,9 +48,11 @@ const Home = () => {
             <Banner handelSearch ={handelSearch}
             searchText ={searchText}
             setSearchText={setSearchText}></Banner>
-           <Categories
+          <div className="">
+          <Categories
             handelCategory ={handelCategory}
             ></Categories> 
+          </div>
            
             <div className="grid grid-cols-1 gap-5 mt-20 space-y-3 opacity-90">
                 <div className="w-[60%] mx-auto">

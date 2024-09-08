@@ -10,22 +10,23 @@ const CategoryBox = ({ label, icon: Icon, handelCategory }) => {
           hover:translate-x-6
           hover:z-40 hover:bg-[#CD5B59]
           rounded-lg
-        h-32 w-32
+        h-[100px] w-[124px]
         overflow-hidden
       flex-col 
       items-center 
       justify-center 
       gap-2
-      p-3
+      p-
       border-b-2
      hover:text-white
       transition
       cursor-pointer  ${
         category === label && "border-b-neutral-800 text-neutral-800"
       } `}
+  
     >
       <Icon size={26} />
-      <div className="text-sm font-medium">{label}</div>
+      <div className="text-xs sm:text-sm md:text-base font-medium">{label}</div>
     </div>
   );
 };

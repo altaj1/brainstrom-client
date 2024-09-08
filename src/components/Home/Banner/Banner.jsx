@@ -2,6 +2,7 @@ import Lottie from "lottie-react";
 import TrustedOrganizations from "./TrustedOrganizations";
 import animationData from "../../../../public/animation/banner.json";
 import { IoSearch } from "react-icons/io5";
+import { SearchPage } from "../../Shared/SearchPage";
 const Banner = ({ handelSearch, setSearchText, searchText }) => {
   return (
     <div
@@ -25,9 +26,9 @@ const Banner = ({ handelSearch, setSearchText, searchText }) => {
                   waiting for you!
                 </p>
                 <div className=" text-center flex items-center justify-center">
-                  <form onSubmit={handelSearch}>
+                  {/* <form onSubmit={handelSearch}>
                     <div
-                      className="lg:w-96 md:w-full w-72  flex connte items-center lg:rounded-lg md:rounded-lg rounded-l-lg rounded-lg bg-slate-50 hover:outline outline-[#8dbe3f] transition-all duration-150 ease-in-out"
+                      className="lg:w-96 md:w-full w-72  flex connte items-center lg:rounded-lg md:rounded-lg rounded-l-lg rounded-lg bg-slate-50 hover:outline outline-[#CD5B59] transition-all duration-150 ease-in-out"
                     >
                       <input
                         className="lg:w-96 md:w-full w-72  lg:rounded-lg md:rounded-lg pl-5 focus:outline-none text-gray-800"
@@ -39,12 +40,13 @@ const Banner = ({ handelSearch, setSearchText, searchText }) => {
                       <br />
                       <button
                         type="submit"
-                        className="text-xl text-gray-800 bg-[#8dbe3f] py-3 pr-5 rounded-r-lg pl-4 hover:bg-[#5b8021] hover:text-yellow-50 transition-all duration-300 ease-in-out"
+                        className="text-xl text-white bg-[#CD5B59] py-3 pr-5 rounded-r-lg pl-4 hover:bg-[#5b8021] hover:text-yellow-50 transition-all duration-300 ease-in-out"
                       >
                         <IoSearch />
                       </button>
                     </div>
-                  </form>
+                  </form> */}
+                  <SearchPage handelSearch={handelSearch} setSearchText={setSearchText} searchText={searchText}></SearchPage>
                 </div>
               </div>
             </div>
@@ -62,7 +64,7 @@ const Banner = ({ handelSearch, setSearchText, searchText }) => {
             </div>
           </div>
         </div>
-        <div className="relative -bottom-16 container mx-auto flex items-center hidden lg:block md:block ">
+        <div className=" container mx-auto flex items-center hidden lg:block md:block ">
           <TrustedOrganizations />
         </div>
       </div>

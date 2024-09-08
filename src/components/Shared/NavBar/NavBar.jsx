@@ -5,6 +5,7 @@ import { MdArrowDropDown } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { GiHamburgerMenu } from "react-icons/gi";
+import Name from "../Name";
 
 const NavBar = () => {
   const { user, setUser, logOut, setDarkMode, darkMode } = useAuth();
@@ -72,20 +73,24 @@ const NavBar = () => {
               alt=""
             />
           </Link>
-          <Link to="/">
-            <h1 className="text-2xl font-bold lg:block hidden inline-block  text-transparent bg-clip-text bg-gradient-to-r from-indigo-900 from-10% via-sky-500 via-30% to-emerald-500 to-90% ...">
+          <Link to="/"
+          className="lg:block hidden md:block"
+          >
+            {/* <h1 className="text-2xl font-bold lg:block hidden inline-block  text-transparent bg-clip-text bg-gradient-to-r from-indigo-900 from-10% via-sky-500 via-30% to-emerald-500 to-90% ...">
               BrainStrom
-            </h1>
+            </h1> */}
+            <Name></Name>
           </Link>
         </div>
         <div className=" md:block   hidden lg:flex ml-5">
           {/* <ul className="menu menu-horizontal   px-1">{listItems}</ul> */}
         </div>
       </div>
+      <Link to={'/'} className="navbar-center md:hidden lg:hidden block"><Name></Name></Link >
 
       <div className="navbar-end space-x-3">
         <div className="dropdown dropdown-hover drop-shadow-none">
-          <div tabIndex={0} role="button" className=" m-1">
+          <div tabIndex={0} role="button" className=" m-1 ">
             <Link>
               {user ? (
                 <img
@@ -104,7 +109,7 @@ const NavBar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="dropdown-content z-[1] menu p-2 shadoww w-52 bg-rose-300 text-black opacity-85 font-semibold rounded-lg"
+            className="dropdown-content z-[1] menu p-2 shadoww w-52 bg-[#360951] text-white opacity-85 font-semibold rounded-lg"
           >
             <li>
               <a>{user?.displayName}</a>
