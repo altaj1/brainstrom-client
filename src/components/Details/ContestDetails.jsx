@@ -71,69 +71,47 @@ const ContestDetails = () => {
               </div>
             </div>
           </div>
+         
+          {/* -----------------price date */}
+          <div className="flex justify-between gap-2 pt-2">
+            <div
+              className=" items-center  gap-4 font-light
+"
+            >
+              <p>Price: ${price}</p>
+              <p>Prize Money: ${prizeMoney}</p>
+              <p>Participants: {contest?.participationCount || "0"}</p>
+            </div>
+            <div
+              className="space-y-2 font-light"
+            >
+              <p>Post Date: {new Date(from).toLocaleString()}</p>
+              <p>Last Date: {new Date(to).toLocaleString()}</p>
+            </div>
+          </div>
+          <hr />
+          {/* ______________________________------------- */}
           <div className="grid grid-cols-1 md:grid-cols-7 md:gap-10 mt-6">
-            <div className="col-span-4 flex flex-col gap-8">
-              <div className="flex flex-col gap-2">
-                <div
-                  className="
-                text-xl 
-                font-semibold 
-                flex 
-                flex-row 
-                items-center
-                gap-2
-              "
-                ></div>
-                <div
-                  className="
-                flex 
-                flex-row 
-                items-center 
-                gap-4 
-                font-light
-               
-              "
-                >
-                  <div>Price: ${price}</div>
-                  <div>Prize Money: ${prizeMoney}</div>
-                  <p>Participants: {contest?.participationCount || "0"}</p>
-                </div>
-                <div
-                  className="
-                flex 
-                flex-col
-                
-                gap-4 
-                font-light
-               
-              "
-                >
-                  <p>Post Date: {new Date(from).toLocaleString()}</p>
-                  <p>Last Date: {new Date(to).toLocaleString()}</p>
-                </div>
-              </div>
-
-              <hr />
-              <div
-                className="
-          text-lg font-light"
+            <div className="col-span-4 items-center justify-center flex flex-col gap-8">
+              {/* ----------------------------------- */}
+              <p
+                className=" text-lg font-light"
               >
                 {description}
-              </div>
-              <hr />
+              </p>
             </div>
-
+            {/* --------------------------------------------------------------------------- */}
             <div className="md:col-span-3 order-first md:order-last mb-10">
               {winerData ? (
                 <div>
                   <div className=" p-3">
                     <h1 className="text-lg">Contest Of The Winner</h1>
                   </div>
-                  <div className="flex  justify-center md:justify-start items-center">
+                  <div className="flex  ">
                     <img
                       src={winerData?.winerPhoto}
                       alt="Winner"
-                      className="w-32 h-32 rounded-full mr-4"
+                      className="w-32 h-32  mr-4"
                     />
                     <div>
                       <p className="text-lg">{winerData.winerName}</p>
@@ -148,6 +126,7 @@ const ContestDetails = () => {
               )}
             </div>
           </div>
+          <hr />
           {winerData ? (
             <div className="flex justify-end pb-12  ">
               <h1 className="text-xl font-semibold w-[40%]">
@@ -157,7 +136,7 @@ const ContestDetails = () => {
               </h1>
             </div>
           ) : (
-            <div className="text-end pb-12">
+            <div className="text-end pb-12 pt-2">
               <button
                 onClick={openModal}
                 className="bg-[#FF6F61] p-3 rounded-lg font-medium text-white hover:shadow-lg"

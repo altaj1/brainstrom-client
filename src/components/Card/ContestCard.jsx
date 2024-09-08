@@ -17,11 +17,12 @@ const ContestCard = ({contest, refetch}) => {
         _id,
         description,
     } = contest;
+    console.log(contest)
     return (
-        <div className="dark:bg-gray-100 dark:text-gray-800 mt-10">
+        <div className="dark:bg-gray-100 dark:text-gray-800 pt-5">
         <div className="container max-w-6xl px-10 py-6 mx-auto hover:border-[#FF6F61] rounded-lg shadow-lg border-b-4 border-r-8 divide-x divide-dashed dark:bg-gray-50 grid lg:grid-cols-3 gap-5">
             <div className="flex items-center flex-col justify-center">
-               <img className="rounded-lg lg:h-[344px ] lg:w-[258px]" src={image} alt="" />
+               <img className="rounded-lg h-64 lg:w-72 md:96" src={image} alt="" />
             </div>
             <div className="mt-3 space-y-5 pl-6">
                 <h4 className="text-2xl font-bold hover:underline">{title}</h4>

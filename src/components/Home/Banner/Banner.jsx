@@ -51,16 +51,16 @@ const Banner = ({ handelSearch, setSearchText, searchText }) => {
               </div>
             </div>
             <div className="lg:w-[50%] md:w-[50%]">
-              {/* <img
+              <img
                 src={"https://i.ibb.co.com/sjHDdv4/7885167-3788212.jpg"}
                 alt=""
-              /> */}
-              <Lottie
+              />
+              {/* <Lottie
           className="  opacity-80"
           autoplay={true}
           animationData={animationData}
           loop={true}
-        ></Lottie>
+        ></Lottie> */}
             </div>
           </div>
         </div>
