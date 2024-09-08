@@ -24,8 +24,8 @@ const TrustedOrganizations = () => {
     return (
         <div>
             <div>
-                <h1 className="text-lg">TRUSTED BY THE WORLD'S LEADING ORGANIZATIONS</h1>
-                <div className="flex  items-center gap-8 bg-slate-300 px-8 py-5 rounded-md shadow-lg">
+                <h1 className="text-lg text-white">TRUSTED BY THE WORLD'S LEADING ORGANIZATIONS</h1>
+                <div className="flex  items-center gap-12 bg-slate-300 px-8 py-5 rounded-md shadow-lg">
                    {
                     organizations.map((data, idx)=> (
                         <div key={idx} 

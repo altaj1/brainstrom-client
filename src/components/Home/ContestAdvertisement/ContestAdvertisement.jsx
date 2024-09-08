@@ -55,9 +55,9 @@ const {winerData, category
             </div>
             </div>
             <div className="w-full">
-              <Lottie
+              {/* <Lottie
               animationData={animationData}
-              ></Lottie>
+              ></Lottie> */}
             </div>
             {/* Contest Participation Call to Action */}
            

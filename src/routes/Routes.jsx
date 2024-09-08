@@ -21,13 +21,6 @@ import AllContests from '../components/Home/AllContests/AllContests'
 import LeaderBoard from '../pages/LeaderBoard'
 import CreatorRoutes from './CreatorRoutes'
 import AdminRoute from './AdminRoute'
-
-
-
-
-
-
-
 export const router = createBrowserRouter([
   {
     path: '/',
