@@ -19,7 +19,7 @@ const ContestAdvertisement = () => {
 if (isLoading) {
   return <LoadingSpinner></LoadingSpinner>
 }
-console.log(latestWinner)
+console.log(latestWinner.winerData, "this is latest winner")
 const {winerData, category
 } = latestWinner
     return (

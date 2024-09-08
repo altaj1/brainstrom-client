@@ -9,10 +9,10 @@ import Name from "../Name";
 
 const NavBar = () => {
   const { user, setUser, logOut, setDarkMode, darkMode } = useAuth();
- 
+
   const listItems = (
     <div className=" lg:flex  items-center gap-7">
-      <div className="flex  md:flex-row md:gap-6 flex-col text-white lg:flex-row lg:gap-7 lg:space-y-0 space-y-4 ">
+      <div className="flex items-center justify-center md:flex-row md:gap-6 flex-col text-white lg:flex-row lg:gap-7 lg:space-y-0 space-y-4 ">
         {user ? (
           ""
         ) : (
@@ -24,14 +24,26 @@ const NavBar = () => {
             Login
           </Link>
         )}
+       
         <li className=" md:hidden lg:hidden block">
+          <Link to="/dashboard">Dashbord</Link>
+        </li>
+      
+        {
+          user &&  <li className=" md:hidden lg:hidden block">
           <button onClick={() => logOut()} className=" w-full ">
             Logout
           </button>
         </li>
-        <li className=" md:hidden lg:hidden block">
-              <Link to="/dashboard">Dashbord</Link>
-            </li>
+        }
+          <div className=" m-0 md:hidden lg:hidden block ml-4">
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className=" p-1 mr-3 flex items-center text-4xl"
+          >
+            {darkMode ? <MdOutlineDarkMode /> : <MdDarkMode />}
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -68,9 +80,7 @@ const NavBar = () => {
               alt=""
             />
           </Link>
-          <Link to="/"
-          className="lg:block hidden md:block"
-          >
+          <Link to="/" className="lg:block hidden md:block">
             <Name></Name>
           </Link>
         </div>
@@ -78,7 +88,9 @@ const NavBar = () => {
           {/* <ul className="menu menu-horizontal   px-1">{listItems}</ul> */}
         </div>
       </div>
-      <Link to={'/'} className="navbar-center md:hidden lg:hidden block"><Name></Name></Link >
+      <Link to={"/"} className="navbar-center md:hidden lg:hidden block">
+        <Name></Name>
+      </Link>
 
       <div className="navbar-end space-x-3">
         <div className="dropdown dropdown-hover drop-shadow-none">
@@ -117,12 +129,10 @@ const NavBar = () => {
           </ul>
         </div>
 
-        <div className="md:block lg:block hidden">
-          {listItems}
-        </div>
+        <div className="md:block lg:block hidden">{listItems}</div>
 
         {/* dark mood button */}
-        <div className=" m-0 ">
+        <div className=" m-0 md:block lg:block hidden">
           <button
             onClick={() => setDarkMode(!darkMode)}
             className=" p-1 mr-3 flex items-center text-4xl"

@@ -87,7 +87,7 @@ const Home = () => {
           </button>
         </div>
       </div>
-      <div className="">
+      <div className="pt-5">
         <ContestAdvertisement></ContestAdvertisement>
       </div>
       <div className="opacity-90 pt-20">

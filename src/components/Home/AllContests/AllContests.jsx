@@ -57,7 +57,7 @@ const AllContests = () => {
     console.log(count)
     return (
         <div className="grid grid-cols-1 gap-5 space-y-3">
-            <div className="w-[60%] mx-auto">
+            <div className="lg:w-[60%] md:w-[80%] p-5 mx-auto">
             <Heading title={"There Are Pure All Contest"} center={true} subtitle={"Welcome to the IoT Innovation Challenge, the premier contest for tech enthusiasts and innovators! This contest is your chance to demonstrate your skills and creativity in the Internet of Things (IoT) domain. Whether you’re a solo inventor or part of a dynamic team, this is your platform to shine and make a significant impact."}></Heading>
             </div>
               <div>
