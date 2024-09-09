@@ -29,7 +29,7 @@ const {winerData, category
             <h1 className="text-4xl font-bold">Join Our Exciting Contest!</h1>
             <p className="mt-4 text-lg">Showcase your talents and win amazing prizes!</p>
           </div>
-          <div className="grid lg:pl-16 rounded-lg shadow-lg  md:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:px-10 rounded-lg shadow-lg  md:grid-cols-2 gap-12 items-center">
             {/* Dynamic Contest Winner Info */}
             <div className="text-center md:text-left px-6">
               <h2 className="text-2xl font-bold mb-4">Congratulations to our latest winner!</h2>
@@ -50,7 +50,7 @@ const {winerData, category
               </div>
               <div className="text-center md:text-left pt-5">
               <h2 className="text-2xl font-bold mb-4">Your chance to shine!</h2>
-              <p className="mb-4">
+              <p className="mb-6">
               Join now and become a contest winner! Unleash your potential and make your mark today!
               </p>
               <Link to='/all-Contest' className="hover:bg-[#FF6F61] pt-4 bg-[#f3dddb] hover:text-white w-28 rounded-lg shadow-lg p-4">Participate Now</Link>
@@ -59,7 +59,7 @@ const {winerData, category
             </div>
             <div className="">
               <img 
-              className=""
+              className=" rounded-lg"
                src={'https://i.ibb.co.com/P6X8tHg/programmers-team-working-together-software-development-office-programmer-team-working-program-130817.jpg'} alt="" />
              
             </div>
