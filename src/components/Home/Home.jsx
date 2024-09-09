@@ -45,7 +45,7 @@ const Home = () => {
     return <LoadingSpinner></LoadingSpinner>;
   }
   const populerContests = contests.slice(0, 6);
-  console.log(populerContests, "this is populer contest");
+
   return (
     <div>
       <Banner
@@ -87,7 +87,7 @@ const Home = () => {
           </button>
         </div>
       </div>
-      <div className="pt-5">
+      <div className="pt-5 ">
         <ContestAdvertisement></ContestAdvertisement>
       </div>
       <div className="opacity-90 pt-20">

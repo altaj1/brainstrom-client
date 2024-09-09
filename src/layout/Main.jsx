@@ -12,7 +12,7 @@ const Main = () => {
     <div className={`${darkMode ? "bg-[#061f31]  h-full text-white" : ""} dark:bg-[#0F172A] font-serif text-opacity-85`} >
       <NavBar />
 
-      <div className='pt-20 min-h-[calc(100vh-30px)] font-serif'>
+      <div className='pt-20 min-h-[calc(100vh-30px)]'>
         <Outlet />
       </div>
       <Footer></Footer>

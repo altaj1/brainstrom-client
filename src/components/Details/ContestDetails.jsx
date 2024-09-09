@@ -49,7 +49,8 @@ const ContestDetails = () => {
     price,
     _id,
     description,
-    participationCount,
+    instruction,
+
     winerData,
     category,
   } = contest;
@@ -61,7 +62,7 @@ const ContestDetails = () => {
           {/* Header */}
           <div className="flex flex-col gap-6">
             <div>
-              <Heading title={title} subtitle={""} />
+              <Heading title={category} subtitle={""} />
               <div className="w-full md:h-[60vh] overflow-hidden rounded-xl">
                 <img
                   className="object-cover w-full"
@@ -71,8 +72,8 @@ const ContestDetails = () => {
               </div>
             </div>
           </div>
+
          
-          {/* -----------------price date */}
           <div className="flex justify-between gap-2 pt-2">
             <div
               className=" items-center  gap-4 font-light
@@ -82,26 +83,23 @@ const ContestDetails = () => {
               <p>Prize Money: ${prizeMoney}</p>
               <p>Participants: {contest?.participationCount || "0"}</p>
             </div>
-            <div
-              className="space-y-2 font-light"
-            >
+            <div className="space-y-2 font-light">
               <p>Post Date: {new Date(from).toLocaleString()}</p>
               <p>Last Date: {new Date(to).toLocaleString()}</p>
             </div>
           </div>
           <hr />
-          {/* ______________________________------------- */}
+         
           <div className="grid grid-cols-1 md:grid-cols-7 md:gap-10 mt-6">
-            <div className="col-span-4 items-center justify-center flex flex-col gap-8">
-              {/* ----------------------------------- */}
-              <p
-                className=" text-lg font-light"
-              >
-                {description}
+            <div className="col-span-4 space-y-2">
+             
+              <p className=" text-xl font-semibold">{title}</p>
+              <p className="  font-light">
+                <span className="font-bold"> description:</span> {description}
               </p>
             </div>
-            {/* --------------------------------------------------------------------------- */}
-            <div className="md:col-span-3 order-first md:order-last mb-10">
+           
+            <div className="md:col-span-3 order-first md:order-last ">
               {winerData ? (
                 <div>
                   <div className=" p-3">
@@ -120,9 +118,13 @@ const ContestDetails = () => {
                   </div>
                 </div>
               ) : (
-                <h1 className="text-xl font-semibold mt-24">
+                <div className="space-y-2">
+                  <h1 className="text-xl font-semibold ">
                   There Are Still {leftDate} Days Left For Win's Decler
                 </h1>
+                <p> <span className="font-bold">Instruction:</span> {instruction}</p>
+                </div>
+                
               )}
             </div>
           </div>

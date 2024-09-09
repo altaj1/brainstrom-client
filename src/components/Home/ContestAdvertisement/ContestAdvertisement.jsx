@@ -19,19 +19,19 @@ const ContestAdvertisement = () => {
 if (isLoading) {
   return <LoadingSpinner></LoadingSpinner>
 }
-console.log(latestWinner.winerData, "this is latest winner")
+console.log(latestWinner, "this is latest winner")
 const {winerData, category
 } = latestWinner
     return (
-        <div className="lg:py-8 mt-5 lg:mt-24 lg:w-[67%]  mx-auto">
-        <div className="container mx-auto px-6">
+        <div className="lg:py-8 mt-5 xl:w-[67%] md:w-[100%] mx-auto ">
+        <div className="container mx-auto ">
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold">Join Our Exciting Contest!</h1>
             <p className="mt-4 text-lg">Showcase your talents and win amazing prizes!</p>
           </div>
           <div className="grid lg:pl-16 rounded-lg shadow-lg  md:grid-cols-2 gap-12 items-center">
             {/* Dynamic Contest Winner Info */}
-            <div className="text-center md:text-left">
+            <div className="text-center md:text-left px-6">
               <h2 className="text-2xl font-bold mb-4">Congratulations to our latest winner!</h2>
               <div className="flex ">
                 <img
@@ -41,7 +41,10 @@ const {winerData, category
                 />
                 <div className="text-start">
                   <p className="text-lg">Name: {winerData?.winerName}</p>
-                  <p className="text-sm">Category: {category}</p>
+                  <p className="">Category: {category}</p>
+                  <p className="">Declaration Time: {new Date(winerData?.winDate).toLocaleString()}</p>
+
+
                   
                 </div>
               </div>
@@ -54,10 +57,11 @@ const {winerData, category
               
             </div>
             </div>
-            <div className="w-full">
-              {/* <Lottie
-              animationData={animationData}
-              ></Lottie> */}
+            <div className="">
+              <img 
+              className=""
+               src={'https://i.ibb.co.com/P6X8tHg/programmers-team-working-together-software-development-office-programmer-team-working-program-130817.jpg'} alt="" />
+             
             </div>
             {/* Contest Participation Call to Action */}
            
