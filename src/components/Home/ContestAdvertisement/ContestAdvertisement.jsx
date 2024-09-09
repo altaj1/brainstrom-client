@@ -33,14 +33,14 @@ const {winerData, category
             {/* Dynamic Contest Winner Info */}
             <div className="text-center md:text-left">
               <h2 className="text-2xl font-bold mb-4">Congratulations to our latest winner!</h2>
-              <div className="flex justify-center md:justify-start items-center">
+              <div className="flex ">
                 <img
                   src={winerData?.winerPhoto}
                   alt="Winner"
-                  className="w-32 h-32 rounded-full mr-4"
+                  className="w-32 h-32 rounded-lg mr-4"
                 />
                 <div className="text-start">
-                  <p className="text-lg">{winerData?.winerName}</p>
+                  <p className="text-lg">Name: {winerData?.winerName}</p>
                   <p className="text-sm">Category: {category}</p>
                   
                 </div>

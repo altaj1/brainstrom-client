@@ -50,7 +50,7 @@ const Banner = ({ handelSearch, setSearchText, searchText }) => {
                 </div>
               </div>
             </div>
-            <div className="lg:w-[50%] md:w-[50%]">
+            <div className="lg:w-[50%] md:w-[50%] p-5">
               <img
                 src={"https://i.ibb.co.com/sjHDdv4/7885167-3788212.jpg"}
                 alt=""
