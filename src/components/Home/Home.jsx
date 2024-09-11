@@ -90,10 +90,10 @@ const Home = () => {
       <div className="pt-5 ">
         <ContestAdvertisement></ContestAdvertisement>
       </div>
-      <div className="opacity-90 pt-20">
+      <div className="opacity-90 pt-5">
         <BestContestCreator></BestContestCreator>
       </div>
-      <div className="w-[65%] mx-auto pb-16 shadow-xl opacity-90 ">
+      <div className="xl:w-[65%] mx-auto pb-16 shadow-xl opacity-90 ">
         <Heading
           title={"General Questions"}
           center={true}
@@ -101,11 +101,11 @@ const Home = () => {
             "Frequently asked questions about Brainstrom hub and general information."
           }
         ></Heading>
-        <div className="rounded-lg p-4 ">
+        <div className="rounded-lg p-5 ">
           <Faq></Faq>
         </div>
       </div>
-      <div className="w-[65%] mx-auto pb-16 shadow-xl p-12 opacity-90">
+      <div className="xl:w-[65%] mx-auto pb-16 shadow-xl p-5 opacity-90">
         <Heading
           title={"Welcome to Brainstorm!"}
           center={true}

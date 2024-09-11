@@ -28,7 +28,7 @@ const FaqsItems = ({data}) => {
             />
           </svg>
         </button>
-        {isOpen && <p className="mt-2 ">{data.answer}</p>}
+        {isOpen && <p className="mt-2 bg-base-200 py-2 rounded-md px-2">{data.answer}</p>}
       </div>
         </div>
     );

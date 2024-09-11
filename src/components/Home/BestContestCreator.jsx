@@ -57,14 +57,14 @@ const BestContestCreator = () => {
           clickable: true,
         }}
       
-        navigation={true}
+        // navigation={true}
         modules={[Autoplay, Pagination]}
         onAutoplayTimeLeft={onAutoplayTimeLeft}
         className="mySwiper"
       >
         {creators.map((cr, index) => (
           <SwiperSlide key={index}>
-            <div className="w-[65%] mx-auto space-y-7  shadow-lg rounded-lg lg:p-12 md:p-12 text-start mb-10">
+            <div className="xl:w-[65%] mx-auto space-y-7  shadow-lg rounded-lg lg:p-12 md:p-12 p-5 text-start mb-10">
               <div>
                 <img
                   className="h-20 w-20 rounded-full"
