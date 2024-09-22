@@ -17,7 +17,7 @@ const NavBar = () => {
           ""
         ) : (
           <Link
-            className=" p-3 mt-5 text-center font-medium  transition duration-200 rounded shadow-md bg-[#360951]"
+            className=" p-3 mt-5 text-center font-medium  transition duration-200 rounded shadow-md bg-[#FF7D70]"
             to="/login"
           >
             {" "}
