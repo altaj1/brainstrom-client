@@ -1,7 +1,5 @@
-import Lottie from "lottie-react";
+
 import TrustedOrganizations from "./TrustedOrganizations";
-import animationData from "../../../../public/animation/banner.json";
-import { IoSearch } from "react-icons/io5";
 import { SearchPage } from "../../Shared/SearchPage";
 const Banner = ({ handelSearch, setSearchText, searchText }) => {
   return (
@@ -55,12 +53,6 @@ const Banner = ({ handelSearch, setSearchText, searchText }) => {
                 src={"https://i.ibb.co.com/sjHDdv4/7885167-3788212.jpg"}
                 alt=""
               />
-              {/* <Lottie
-          className="  opacity-80"
-          autoplay={true}
-          animationData={animationData}
-          loop={true}
-        ></Lottie> */}
             </div>
           </div>
         </div>
