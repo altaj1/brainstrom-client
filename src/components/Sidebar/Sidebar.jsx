@@ -45,7 +45,7 @@ const Sidebar = () => {
 
         <button
           onClick={handleToggle}
-          className='mobile-menu-button p-4 focus:outline-none focus:bg-gray-200'
+          className='mobile-menu-button lg:mt-0 xl:mt-0 md:mt-0 p-4 focus:outline-none focus:bg-gray-200'
         >
           <AiOutlineBars className='h-5 w-5' />
         </button>
@@ -53,7 +53,7 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`bg-gray-100 mt-10 z-10 md:fixed flex flex-col justify-between overflow-x-hidden  w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
+        className={`bg-gray-100 lg:mt-0 xl:mt-0 md:mt-0 mt-20 z-50 md:fixed flex flex-col justify-between overflow-x-hidden  w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
           isActive && '-translate-x-full'
         }  md:translate-x-0  transition duration-200 ease-in-out`}
       >
