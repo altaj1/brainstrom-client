@@ -71,7 +71,7 @@ const AllContests = () => {
               </div>
              
                 
-                <div className='pagination join flex items-center justify-center p-16'>
+                <div className='pagination join lg:flex md:flex xl:flex items-center justify-center pb-10'>
                 
                 <button className="flex items-center justify-center gap-1 mr-4" onClick={handlePrevPage}><GrLinkPrevious /> Prev</button>
                <div className="text-2xl space-x-6">
